@@ -6,6 +6,7 @@ Entities:
     Doctor(staff_id, rank, board_certification)
     Nurse(staff_id, certified_skills)
     Admin(staff_id, admin_responsibilities)
+    Patient(patient_id, first_name, last_name, date_of_birth, care_cost, dept_name)
 
 Relations:
     Has(dept_name, eqpt_name, amount_needed, current_stock)
