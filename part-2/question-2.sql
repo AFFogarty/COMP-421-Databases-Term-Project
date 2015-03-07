@@ -55,18 +55,20 @@ CREATE TABLE Has (
     dept_name VARCHAR(64) REFERENCES Department(dept_name),
     eqpt_name VARCHAR(64) REFERENCES Equipment(eqpt_name),
     amount_needed INTEGER,
-    current_stock INTEGER
+    current_stock INTEGER,
+    PRIMARY KEY (dept_name, eqpt_name)
 );
 
 CREATE TABLE InChargeOf (
-    patient_id INTEGER REFERENCES Patient(patient_id),
+    patient_id INTEGER PRIMARY KEY REFERENCES Patient(patient_id),
     dept_name VARCHAR(64),
     since DATE
 );
 
 CREATE TABLE SpecializesIn (
     staff_id INTEGER REFERENCES Staff(staff_id),
-    ill_name VARCHAR(64)
+    ill_name VARCHAR(64),
+    PRIMARY KEY (staff_id, ill_name)
 );
 
 CREATE TABLE SufferingFrom (
@@ -76,13 +78,15 @@ CREATE TABLE SufferingFrom (
     ill_until DATE,
     insurance_coverage MONEY,
     treatment_cost MONEY,
-    urgency
+    urgency,
+    PRIMARY KEY (patient_id, ill_name)
 );
 
 CREATE TABLE Treats (
     staff_id INTEGER REFERENCES Staff(staff_id),
     patient_id INTEGER REFERENCES Patient(patient_id),
-    since DATE
+    since DATE,
+    PRIMARY KEY (staff_id, patient_id)
 );
 
 CREATE TABLE WorksFor (
@@ -92,5 +96,6 @@ CREATE TABLE WorksFor (
     over_time FLOAT,
     contract_until DATE,
     salary MONEY,
-    contract_from DATE
+    contract_from DATE,
+    PRIMARY KEY (staff_id, dept_name)
 );
