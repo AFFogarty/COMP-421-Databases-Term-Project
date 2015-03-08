@@ -7,29 +7,29 @@ CREATE TABLE Illness (
 CREATE TABLE Equipment (
     eqpt_name VARCHAR(64) PRIMARY KEY,
     cost MONEY,
-    consumable BOOLEAN
+    consumable BOOLEAN NOT NULL
 );
 
 CREATE TABLE Department (
     dept_name VARCHAR(64) PRIMARY KEY,
-    address TEXT,
-    budget MONEY,
+    address TEXT NOT NULL,
+    budget MONEY NOT NULL,
     other_costs MONEY
 );
 
 CREATE TABLE Staff (
     staff_id INTEGER PRIMARY KEY,
-    dept_name VARCHAR(64),
+    dept_name VARCHAR(64) NOT NULL,
     wages MONEY,
-    salary MONEY,
+    salary MONEY NOT NULL,
     shift_to TIME,
     shift_from TIME,
     over_time FLOAT,
-    contract_from DATE,
-    contract_until DATE,
-    contact VARCHAR(64),
-    first_name VARCHAR(32),
-    last_name VARCHAR(32),
+    contract_from DATE NOT NULL,
+    contract_until DATE NOT NULL,
+    contact VARCHAR(64) NOT NULL,
+    first_name VARCHAR(32) NOT NULL,
+    last_name VARCHAR(32) NOT NULL,
     FOREIGN KEY dept_name
         REFERENCES Department(dept_name)
 );
@@ -58,14 +58,13 @@ CREATE TABLE Admin (
 
 CREATE TABLE Patient (
     patient_id INTEGER PRIMARY KEY,
-    first_name VARCHAR(32),
-    last_name VARCHAR(32),
-    date_of_birth DATE,
-    care_cost MONEY,
-    dept_name VARCHAR(64)
+    first_name VARCHAR(32) NOT NULL,
+    last_name VARCHAR(32) NOT NULL,
+    date_of_birth DATE NOT NULL,
+    care_cost MONEY
 );
 
-CREATE TABLE Has (
+CREATE TABLE DeptHasEqpt (
     dept_name VARCHAR(64),
     eqpt_name VARCHAR(64),
     amount_needed INTEGER,
