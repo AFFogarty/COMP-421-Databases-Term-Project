@@ -1,3 +1,17 @@
+DROP TABLE Treats;
+DROP TABLE SufferingFrom;
+DROP TABLE SpecializesIn;
+DROP TABLE InChargeOf;
+DROP TABLE DeptHasEqpt;
+DROP TABLE Patient;
+DROP TABLE Admin;
+DROP TABLE Nurse;
+DROP TABLE Doctor;
+DROP TABLE Staff;
+DROP TABLE Department;
+DROP TABLE Equipment;
+DROP TABLE Illness;
+
 CREATE TABLE Illness (
     ill_name VARCHAR(64) PRIMARY KEY,
     contagious BOOLEAN,
@@ -7,7 +21,7 @@ CREATE TABLE Illness (
 CREATE TABLE Equipment (
     eqpt_id INTEGER PRIMARY KEY,
     eqpt_name VARCHAR(64),
-    eqpt_manufacturer VARCHAR(64),
+    manufacturer VARCHAR(64),
     cost MONEY,
     consumable BOOLEAN NOT NULL
 );
@@ -66,28 +80,10 @@ CREATE TABLE Patient (
     care_cost MONEY
 );
 
-CREATE TABLE DeptHasEqpt (
-    dept_name VARCHAR(64),
-    eqpt_id INTEGER,
-    amount_needed INTEGER,
-    current_stock INTEGER NOT NULL,
-    FOREIGN KEY (dept_name)
-        REFERENCES Department(dept_name),
-    FOREIGN KEY (eqpt_id)
-        REFERENCES Equipment(eqpt_id),
-    PRIMARY KEY (dept_name, eqpt_id)
-);
-
-CREATE TABLE InChargeOf (
-    patient_id INTEGER PRIMARY KEY REFERENCES Patient(patient_id),
-    dept_name VARCHAR(64),
-    since DATE
-);
-
 CREATE TABLE SpecializesIn (
     staff_id INTEGER,
     ill_name VARCHAR(64),
-    FOREIGN KEY (staff_id)
+    FOREIGN KEY (staff_id)  
         REFERENCES Staff(staff_id),
     FOREIGN KEY (ill_name)
         REFERENCES Illness(ill_name),
@@ -121,17 +117,23 @@ CREATE TABLE Treats (
     PRIMARY KEY (staff_id, patient_id)
 );
 
+CREATE TABLE DeptHasEqpt (
+    dept_name VARCHAR(64),
+    eqpt_id INTEGER,
+    amount_needed INTEGER,
+    current_stock INTEGER NOT NULL,
+    FOREIGN KEY (dept_name)
+        REFERENCES Department(dept_name),
+    FOREIGN KEY (eqpt_id)
+        REFERENCES Equipment(eqpt_id),
+    PRIMARY KEY (dept_name, eqpt_id)
+);
 
-DROP TABLE Treats;
-DROP TABLE SufferingFrom;
-DROP TABLE SpecializesIn;
-DROP TABLE InChargeOf;
-DROP TABLE DeptHasEqpt;
-DROP TABLE Patient;
-DROP TABLE Admin;
-DROP TABLE Nurse;
-DROP TABLE Doctor;
-DROP TABLE Staff;
-DROP TABLE Department;
-DROP TABLE Equipment;
-DROP TABLE Illness;
+CREATE TABLE InChargeOf (
+    patient_id INTEGER PRIMARY KEY REFERENCES Patient(patient_id),
+    dept_name VARCHAR(64),
+    since DATE
+);
+
+
+
