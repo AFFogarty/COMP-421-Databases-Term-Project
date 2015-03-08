@@ -13,7 +13,8 @@ DROP TABLE Equipment;
 DROP TABLE Illness;
 
 CREATE TABLE Illness (
-    ill_name VARCHAR(64) PRIMARY KEY,
+    ill_id char(8) PRIMARY KEY,
+    ill_name VARCHAR(64),
     contagious BOOLEAN,
     average_treatment_cost MONEY
 );
@@ -82,17 +83,17 @@ CREATE TABLE Patient (
 
 CREATE TABLE SpecializesIn (
     staff_id INTEGER,
-    ill_name VARCHAR(64),
+    ill_id CHAR(8),
     FOREIGN KEY (staff_id)  
         REFERENCES Staff(staff_id),
-    FOREIGN KEY (ill_name)
-        REFERENCES Illness(ill_name),
-    PRIMARY KEY (staff_id, ill_name)
+    FOREIGN KEY (ill_id)
+        REFERENCES Illness(ill_id),
+    PRIMARY KEY (staff_id, ill_id)
 );
 
 CREATE TABLE SufferingFrom (
     patient_id INTEGER,
-    ill_name VARCHAR(64),
+    ill_id CHAR(8),
     ill_since DATE NOT NULL,
     ill_until DATE,
     insurance_coverage MONEY,
@@ -100,9 +101,9 @@ CREATE TABLE SufferingFrom (
     urgency VARCHAR(32),
     FOREIGN KEY (patient_id)
         REFERENCES Patient(patient_id),
-    FOREIGN KEY (ill_name)
-        REFERENCES Illness(ill_name),
-    PRIMARY KEY (patient_id, ill_name)
+    FOREIGN KEY (ill_id)
+        REFERENCES Illness(ill_id),
+    PRIMARY KEY (patient_id, ill_id)
 );
 
 CREATE TABLE Treats (
