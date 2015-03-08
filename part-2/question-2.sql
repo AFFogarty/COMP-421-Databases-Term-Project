@@ -68,7 +68,7 @@ CREATE TABLE DeptHasEqpt (
     dept_name VARCHAR(64),
     eqpt_name VARCHAR(64),
     amount_needed INTEGER,
-    current_stock INTEGER,
+    current_stock INTEGER NOT NULL,
     FOREIGN KEY dept_name
         REFERENCES Department(dept_name),
     FOREIGN KEY eqpt_name 
@@ -95,11 +95,11 @@ CREATE TABLE SpecializesIn (
 CREATE TABLE SufferingFrom (
     patient_id INTEGER,
     ill_name VARCHAR(64),
-    ill_since DATE,
+    ill_since DATE NOT NULL,
     ill_until DATE,
     insurance_coverage MONEY,
     treatment_cost MONEY,
-    urgency,
+    urgency VARCHAR(32),
     FOREIGN KEY patient_id
         REFERENCES Patient(patient_id),
     FOREIGN KEY ill_name
@@ -110,7 +110,7 @@ CREATE TABLE SufferingFrom (
 CREATE TABLE Treats (
     staff_id INTEGER,
     patient_id INTEGER,
-    since DATE,
+    since DATE NOT NULL,
     until DATE,
     FOREIGN KEY staff_id
         REFERENCES Staff(staff_id),
