@@ -1,12 +1,12 @@
 Entities:
     Illness(ill_name, contagious, average_treatment_cost)
-    Equipment(eqpt_name, cost, consumable)
+    Equipment(eqpt_id, eqpt_name, manufacturer, cost, consumable)
     Department(dept_name, address, budget, other_costs)
     Staff(staff_id, shift_to, shift_from, contact, first_name, last_name)
     Doctor(staff_id, rank, board_certification)
     Nurse(staff_id, certified_skills)
     Admin(staff_id, admin_responsibilities)
-    Patient(patient_id, first_name, last_name, date_of_birth, care_cost, dept_name)
+    Patient(patient_id, first_name, last_name, date_of_birth, care_cost)
 
 Relations:
     Has(dept_name, eqpt_name, amount_needed, current_stock)

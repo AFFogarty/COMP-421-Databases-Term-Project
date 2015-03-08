@@ -5,7 +5,9 @@ CREATE TABLE Illness (
 );
 
 CREATE TABLE Equipment (
-    eqpt_name VARCHAR(64) PRIMARY KEY,
+    eqpt_id INTEGER PRIMARY KEY,
+    eqpt_name VARCHAR(64),
+    eqpt_manufacturer VARCHAR(64),
     cost MONEY,
     consumable BOOLEAN NOT NULL
 );
@@ -66,14 +68,14 @@ CREATE TABLE Patient (
 
 CREATE TABLE DeptHasEqpt (
     dept_name VARCHAR(64),
-    eqpt_name VARCHAR(64),
+    eqpt_id INTEGER,
     amount_needed INTEGER,
     current_stock INTEGER NOT NULL,
     FOREIGN KEY (dept_name)
         REFERENCES Department(dept_name),
-    FOREIGN KEY (eqpt_name)
-        REFERENCES Equipment(eqpt_name),
-    PRIMARY KEY (dept_name, eqpt_name)
+    FOREIGN KEY (eqpt_id)
+        REFERENCES Equipment(eqpt_id),
+    PRIMARY KEY (dept_name, eqpt_id)
 );
 
 CREATE TABLE InChargeOf (
@@ -120,16 +122,16 @@ CREATE TABLE Treats (
 );
 
 
--- DROP TABLE Treats;
--- DROP TABLE SufferingFrom;
--- DROP TABLE SpecializesIn;
--- DROP TABLE InChargeOf;
--- DROP TABLE DeptHasEqpt;
--- DROP TABLE Patient;
--- DROP TABLE Admin;
--- DROP TABLE Nurse;
--- DROP TABLE Doctor;
--- DROP TABLE Staff;
--- DROP TABLE Department;
--- DROP TABLE Equipment;
--- DROP TABLE Illness;
+DROP TABLE Treats;
+DROP TABLE SufferingFrom;
+DROP TABLE SpecializesIn;
+DROP TABLE InChargeOf;
+DROP TABLE DeptHasEqpt;
+DROP TABLE Patient;
+DROP TABLE Admin;
+DROP TABLE Nurse;
+DROP TABLE Doctor;
+DROP TABLE Staff;
+DROP TABLE Department;
+DROP TABLE Equipment;
+DROP TABLE Illness;
