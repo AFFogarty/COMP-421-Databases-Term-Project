@@ -47,3 +47,10 @@ INSERT INTO Equipment VALUES
     (1014, 'Penicillin', 'Big Pharma Ic.', 9.99, TRUE),
     (1015, 'Advil', 'Big Pharma Inc.', 8.99, TRUE),
     (1016, 'Placebo', 'Big Pharma Inc.', 0.99, TRUE);
+
+INSERT INTO Department VALUES
+    ('Oncology', '321 Rue Universite Montreal H2H 3P5', '7000000.00', '45000'),
+    ('Psychiatry', '321 Rue Universite Montreal H2H 3P5', '3000000.00', '25000'),
+    ('Pediatrics', '321 Rue Universite Montreal H2H 3P5', '5000000.00', '35000'),
+    ('Gynecology', '321 Rue Universite Montreal H2H 3P5', '1000000.00', '65000'),
+    ('Cardiology', '321 Rue Universite Montreal H2H 3P5', '9000000.00', '30000');
