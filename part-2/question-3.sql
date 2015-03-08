@@ -29,15 +29,15 @@ INSERT INTO DeptHasEqpt VALUES ('Infectious Diseases', 1010, NULL, '400');
 -- Question 4 queries to fill up the database
 
 INSERT INTO Illness VALUES
-    ('unclassified disorders of the trigeminal nerves', FALSE, 635.90),
+    ('unclassified disorders of the trigeminal nerves', TRUE, 635.90),
     ('unspecified type of hypertension complicating pregnancy', FALSE, 642.09),
     ('complication due to diabetes mellitus of the mother', FALSE, 648.03),
     ('antepartum condition or complication due to triplet pregnancy', FALSE, 651.13),
     ('unclassified disorders of the hand joints', FALSE, 719.84),
-    ('unspecified type of goiter', FALSE, 240.90),
+    ('unspecified type of goiter', TRUE, 240.90),
     ('schizophrenic disorders', FALSE, 295.00),
     ('cancer arising from a poorly defined location', FALSE, 195.00),
-    ('unclassified emotional disturbances', FALSE, 313.89),
+    ('unclassified emotional disturbances', TRUE, 313.89),
     ('reflex sympathetic dystrophy of the lower limb', FALSE, 337.22);
 
 
