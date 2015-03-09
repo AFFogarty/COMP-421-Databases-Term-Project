@@ -59,16 +59,16 @@ INSERT INTO DeptHasEqpt VALUES ('Infectious Diseases', 1011, 75, 75);
 /* Data for Query 2 */
 INSERT INTO Staff VALUES (
     34090, 'Oncology', '99.00', '400000.00', '16:00', '02:00', NULL, 
-    '2012-01-01', '2016-03-29', '514-001-1337 kant@hospital.com', 'Immanuel', 'Kant');
+    '2010-02-03', '2017-07-18', '514-001-1337 kant@hospital.com', 'Immanuel', 'Kant');
 INSERT INTO Staff VALUES (
     34091, 'Oncology', '94.00', '380000.00', '18:00', '00:20', NULL, 
-    '2012-04-12', '2015-04-20', '514-001-1824 burke@hospital.com', 'Edmund', 'Burke');
+    '2012-01-23', '2015-08-29', '514-001-1824 burke@hospital.com', 'Edmund', 'Burke');
 INSERT INTO Staff VALUES (
     34092, 'Oncology', '82.00', '270000.00', '20:00', '11:30', NULL, 
-    '2011-04-12', '2015-06-21', '514-001-9812 hume@hospital.com', 'David', 'Hume');
+    '2010-09-12', '2016-01-13', '514-001-9812 hume@hospital.com', 'David', 'Hume');
 INSERT INTO Staff VALUES (
     34093, 'Infectious Diseases', '87.00', '310000.00', '00:30', '5:00', NULL, 
-    '2012-06-13', '2015-08-20', '514-001-8245 dasein@hospital.com', 'Martin', 'Heidegger');
+    '2012-05-08', '2016-10-19', '514-001-8245 dasein@hospital.com', 'Martin', 'Heidegger');
 
 INSERT INTO Doctor VALUES
     (34090, 'Top Surgeon', 'Some certifications'),
