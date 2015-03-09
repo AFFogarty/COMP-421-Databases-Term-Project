@@ -1,7 +1,6 @@
 DROP TABLE Treats;
 DROP TABLE SufferingFrom;
 DROP TABLE SpecializesIn;
-DROP TABLE InChargeOf;
 DROP TABLE DeptHasEqpt;
 DROP TABLE Patient;
 DROP TABLE Admin;
