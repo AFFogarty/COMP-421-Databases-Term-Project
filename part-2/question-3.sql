@@ -58,17 +58,17 @@ INSERT INTO Staff VALUES
     (34092, 'Oncology', '82.00', '270000.00', '20:00', '11:30', NULL, 
     '2010-09-12', '2016-01-13', '514-001-9812 hume@hospital.com', 'David', 'Hume'),
     (34093, 'Infectious Diseases', '87.00', '310000.00', '00:30', '5:00', NULL, 
-    '2012-05-08', '2016-10-19', '514-001-8245 dasein@hospital.com', 'Martin', 'Heidegger'); 
+    '2012-05-08', '2016-10-19', '514-001-8245 dasein@hospital.com', 'Martin', 'Heidegger'),
     (34100, 'Dermatology', '20.00', '24000.00', '00:30', '05:00', NULL, 
-    '2011-04-12', '2016-04-11', '514-222-8245 amlou@hospital.com', 'Amundson', 'Lou');
+    '2011-04-12', '2016-04-11', '514-222-8245 amlou@hospital.com', 'Amundson', 'Lou'),
     (34101, 'Dermatology', '20.00', '24000.00', '00:30', '05:00', NULL, 
-    '2012-04-12', '2015-04-11', '514-222-8246 kanderson@hospital.com', 'Kyle', 'Anderson');
+    '2012-04-12', '2015-04-11', '514-222-8246 kanderson@hospital.com', 'Kyle', 'Anderson'),
     (34102, 'Pediatrics', '50.00', '60000.00', '01:30', '05:30', NULL, 
-    '2014-12-01', '2016-11-01', '514-222-8247 jant@hospital.com', 'Joel', 'Anthony');
+    '2014-12-01', '2016-11-01', '514-222-8247 jant@hospital.com', 'Joel', 'Anthony'),
     (34103, 'Cardiology', '100.00', '120000.00', '16:30', '08:00', NULL, 
-    '2011-06-21', '2017-10-19', '514-223-8248 justholiday@hospital.com', 'Justin', 'Holiday');
+    '2011-06-21', '2017-10-19', '514-223-8248 justholiday@hospital.com', 'Justin', 'Holiday'),
     (34104, 'Cardiology', '100.00', '120000.00', '14:30', '06:00', NULL, 
-    '2012-05-08', '2016-01-20', '514-223-8249 jhenson@hospital.com', 'John', 'Henson');
+    '2012-05-08', '2016-01-20', '514-223-8249 jhenson@hospital.com', 'John', 'Henson'),
     (34105, 'Infectious Diseases', '80.00', '96000.00', '18:30', '12:00', NULL, 
     '2013-01-01', '2014-01-01', '514-223-8250 regjackson@hospital.com', 'Reggie', 'Jackson');
 
@@ -126,8 +126,13 @@ INSERT INTO SufferingFrom VALUES
     (691128, 'i0023313', '2014-11-23', NULL, '15000', 200, 'Urgent'),
     (691128, 'i0023325', '2013-07-11', '2013-7-28', '15000', 200, NULL);
 
-INSERT INTO SpecializesIn VALUES (34001, 'i0023313');
-INSERT INTO SpecializesIn VALUES (34004, 'i0023313');
+INSERT INTO SpecializesIn VALUES 
+    (34001, 'i0023313'),
+    (34001, 'i0023366'),
+    (34004, 'i0023313'),
+    (34091, 'i0023378'),
+    (34091, 'i0023382'),
+    (34092, 'i0023378');
 
 INSERT INTO Treats VALUES
     (34002, 690000, '2013-02-03', NULL),
