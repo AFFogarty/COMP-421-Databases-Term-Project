@@ -1,3 +1,11 @@
+DESCRIPTION:
+-----------------------------------------------------------------------------
+|This file contains the responses required by the 2nd part of each question.|
+|The answers to each question are provided under a heading:                 |
+|============ QUESTION N ============                                       |
+|Please look for these in this file to find the responses.                  |
+-----------------------------------------------------------------------------
+
 ============ QUESTION 2.(ii) ============
 
 CS421=> TABLE Illness;
@@ -78,3 +86,295 @@ CS421=> SELECT * FROM ILLNESS;
 
 ============ QUESTION 4 SELECT * Responses ============
 
+CS421=> SELECT * FROM ILLNESS LIMIT 5;
+  ill_id  |                           ill_name                            | contagious | average_treatment_cost
+----------+---------------------------------------------------------------+------------+------------------------
+ i0023358 | unclassified disorders of the trigeminal nerves               | t          |                 635.90
+ i0023359 | unspecified type of hypertension complicating pregnancy       | f          |                 642.09
+ i0023361 | complication due to diabetes mellitus of the mother           | f          |                 648.03
+ i0023362 | antepartum condition or complication due to triplet pregnancy | f          |                 651.13
+ i0023363 | unclassified disorders of the hand joints                     | f          |                 719.84
+(5 rows)
+CS421=> SELECT * FROM Equipment LIMIT 5;
+ eqpt_id | eqpt_name  |   manufacturer    |  cost  | consumable
+---------+------------+-------------------+--------+------------
+    1011 | Scalpel    | Scalpel Co. Inc.  |  29.99 | f
+    1012 | Buzzsaw    | Venosta Saw Corp. | 129.99 | f
+    1013 | Calipers   | E.T. & Company    |  29.99 | f
+    1014 | Penicillin | Big Pharma Ic.    |   9.99 | t
+    1015 | Advil      | Big Pharma Inc.   |   8.99 | t
+(5 rows)
+CS421=> SELECT * FROM Department LIMIT 5;
+  dept_name  |               address               |   budget   | other_costs
+-------------+-------------------------------------+------------+-------------
+ Oncology    | 321 Rue Universite Montreal H2H 3P5 | 7000000.00 |    45000.00
+ Psychiatry  | 321 Rue Universite Montreal H2H 3P5 | 3000000.00 |    25000.00
+ Pediatrics  | 321 Rue Universite Montreal H2H 3P5 | 5000000.00 |    35000.00
+ Gynecology  | 321 Rue Universite Montreal H2H 3P5 | 1000000.00 |    65000.00
+ Dermatology | 321 Rue Universite Montreal H2H 3P5 |  500000.00 |    15000.00
+(5 rows)
+CS421=> SELECT * FROM Staff LIMIT 5;
+ staff_id |      dept_name      | wages  |  salary   | shift_to | shift_from | over_time | contract_from | contract_until |
+      contact                | first_name | last_name
+----------+---------------------+--------+-----------+----------+------------+-----------+---------------+----------------+---------
+-----------------------------+------------+------------
+    34001 | Infectious Diseases |  80.00 | 310000.00 | 09:00:00 | 19:00:00   |           | 2012-01-01    | 2016-03-29     | 514-001-
+8223 kuhn@hospital.com       | Thomas     | Kuhn
+    34002 | Infectious Diseases |  41.00 | 130050.00 | 09:00:00 | 19:00:00   |           | 2012-04-12    | 2015-04-20     | 514-001-
+8246 popper@hospital.com     | Karl       | Popper
+    34003 | Infectious Diseases |  30.00 |  92030.00 | 10:00:00 | 18:00:00   |           | 2011-04-12    | 2015-06-21     | 514-001-
+8250 feyerabend@hospital.com | Paul       | Feyerabend
+    34004 | Infectious Diseases | 120.00 | 375000.00 | 08:00:00 | 19:00:00   |           | 2012-06-13    | 2015-08-20     | 514-001-
+8270 carnap@hospital.com     | Rudolf     | Carnap
+    34111 | Genetics            | 120.00 | 400001.00 | 16:00:00 | 02:00:00   |           | 2010-02-03    | 2014-07-18     | 514-001-
+1344 descartes@hospital.com  | Rene       | Descartes
+(5 rows)
+CS421=> SELECT * FROM Doctor LIMIT 5;
+ staff_id |      rank       | board_certification
+----------+-----------------+---------------------
+    34090 | Top Surgeon     | Some certifications
+    34091 | Surgeon         | Some certifications
+    34092 | Surgeon         | Some certifications
+    34093 | Surgeon         | Some certifications
+    34111 | Department Head |
+(5 rows)
+CS421=> SELECT * FROM Nurse LIMIT 5;
+ staff_id | certified_skills
+----------+------------------
+    34002 | IV
+    34100 | Wound care
+    34101 | Sedation
+    34103 | ACLS
+(4 rows)
+CS421=> SELECT * FROM Admin LIMIT 5;
+ staff_id |    admin_responsibilities
+----------+-------------------------------
+    34003 | IT Management
+    34102 | Reception
+    34104 | EKG Testing
+    34105 | Biohazardous Waste Management
+(4 rows)
+CS421=> SELECT * FROM Patient LIMIT 5;
+ patient_id | first_name | last_name | date_of_birth | care_cost
+------------+------------+-----------+---------------+-----------
+     690000 | Arron      | Afflalo   | 1980-10-11    |    120.00
+     690001 | Coles      | Aldrich   | 1981-02-23    |    140.00
+     690002 | Kent       | Bazemore  | 1985-06-17    |    160.00
+     690003 | Blaire     | DeJuan    | 1982-04-08    |    140.00
+     690004 | Coreey     | Brewer    | 1988-03-25    |    120.00
+(5 rows)
+CS421=> SELECT * FROM SpecializesIn LIMIT 5;
+ staff_id |  ill_id
+----------+----------
+    34001 | i0023313
+    34001 | i0023366
+    34004 | i0023313
+    34091 | i0023378
+    34091 | i0023382
+(5 rows)
+CS421=> SELECT * FROM SufferingFrom LIMIT 5;
+ patient_id |  ill_id  | ill_since  | ill_until | insurance_coverage | treatment_cost | urgency
+------------+----------+------------+-----------+--------------------+----------------+---------
+     690000 | i0023358 | 2013-02-03 |           |              60.00 |         120.00 |
+     690001 | i0023359 | 2014-01-02 |           |             100.00 |         130.00 |
+     690002 | i0023361 | 2013-07-08 |           |             100.00 |         140.00 |
+     690003 | i0023362 | 2014-08-20 |           |              20.00 |         120.00 |
+     690004 | i0023363 | 2012-12-14 |           |              30.00 |         120.00 |
+(5 rows)
+CS421=> SELECT * FROM Treats LIMIT 5;
+ staff_id | patient_id |   since    | until
+----------+------------+------------+-------
+    34002 |     690000 | 2013-02-03 |
+    34090 |     690000 | 2013-02-04 |
+    34002 |     690001 | 2014-01-02 |
+    34091 |     690001 | 2014-01-02 |
+    34092 |     690002 | 2013-07-08 |
+(5 rows)
+CS421=> SELECT * FROM DeptHasEqpt LIMIT 5;
+      dept_name      | eqpt_id | amount_needed | current_stock
+---------------------+---------+---------------+---------------
+ Oncology            |    1017 |            10 |            10
+ Psychiatry          |    1017 |            12 |            10
+ Genetics            |    1017 |            12 |             5
+ Infectious Diseases |    1017 |            10 |             0
+ Infectious Diseases |    1010 |               |           400
+(5 rows)
+
+
+============ QUESTION 5 Execution Responses ============
+
+/* Query 1 */
+-- Get first name, last name from patients who have gastroenteritis and had norovirus before and recovered,
+-- Order by last name
+SELECT first_name, last_name
+FROM Patient
+WHERE patient_id IN (SELECT patient_id
+                    FROM SufferingFrom INNER JOIN Illness
+                    ON SufferingFrom.ill_id = Illness.ill_id
+                    WHERE ill_name LIKE '%Gastroenteritis%' AND ill_until IS NULL
+                    INTERSECT
+                    SELECT patient_id
+                    FROM SufferingFrom INNER JOIN Illness
+                    ON SufferingFrom.ill_id = Illness.ill_id
+                    WHERE ill_name LIKE '%Norovirus%' AND ill_until IS NOT NULL)
+ORDER BY last_name;
+ first_name |  last_name
+------------+-------------
+ John       | Cage
+ Claude     | Debussy
+ Philip     | Glass
+ Karlheinz  | Stockhausen
+ Anton      | Webern
+(5 rows)
+
+/* Query 2 */
+-- select staff_id, first_name, last_name of doctors and nurses from the oncology department working between midnight and 3am
+SELECT S.staff_id, first_name, last_name
+FROM Staff S INNER JOIN Doctor D
+ON S.staff_id = D.staff_id
+    FULL OUTER JOIN Nurse N
+    ON S.staff_id = N.staff_id
+WHERE S.dept_name LIKE '%Oncology%'
+    AND (
+        shift_from <= '03:00:00' -- Shift ends between midnight and 3am
+        OR shift_to <='03:00:00' -- Shift begins between midnight and 3am
+        OR (shift_to > '03:00:00' AND shift_from > shift_to)  -- Shift begins before midnight and ends after 3am
+    );
+ staff_id | first_name | last_name
+----------+------------+-----------
+    34090 | Immanuel   | Kant
+    34091 | Edmund     | Burke
+(2 rows)
+
+/* Query 3 */
+-- Get the department, equipment, manufacturer, and total cost to restock for departments needing pieces
+-- of equipment, and the total cost of restocking all equipment is less than their operating budget
+-- I.e. get depts that can afford to restock all of their needed equipment
+SELECT Department.dept_name, eqpt_name, manufacturer, cost, amount_needed, cost*amount_needed AS total_cost
+FROM Equipment INNER JOIN DeptHasEqpt
+ON Equipment.eqpt_id = DeptHasEqpt.eqpt_id
+    INNER JOIN Department
+    ON DeptHasEqpt.dept_name = Department.dept_name
+WHERE amount_needed IS NOT NULL
+GROUP BY Department.dept_name, eqpt_name, manufacturer, cost, amount_needed, budget
+    HAVING SUM(cost*amount_needed) <= budget
+ORDER BY Department.dept_name;
+      dept_name      |   eqpt_name   |    manufacturer     |  cost   | amount_needed | total_cost
+---------------------+---------------+---------------------+---------+---------------+------------
+ Cardiology          | Defibrillator | Heart Co. Ltd. Inc. | 2500.00 |            10 |   25000.00
+ Genetics            | Stethoscope   | Stethoscopes Inc.   |   39.99 |            12 |     479.88
+ Infectious Diseases | Scalpel       | Scalpel Co. Inc.    |   29.99 |            75 |    2249.25
+ Oncology            | Stethoscope   | Stethoscopes Inc.   |   39.99 |            10 |     399.90
+ Oncology            | Advil         | Big Pharma Inc.     |    8.99 |          2000 |   17980.00
+ Psychiatry          | Placebo       | Big Pharma Inc.     |    0.99 |          2000 |    1980.00
+ Psychiatry          | Stethoscope   | Stethoscopes Inc.   |   39.99 |            12 |     479.88
+(7 rows)
+
+/* Query 4 */
+--list patient's first name and last name and the average cost incurred by all patients for patients
+--whose insurance does not fully cover their treatment costs and has been ill since 2012.
+SELECT Patient.first_name, Patient.last_name, AVG(Patient.care_cost) AS avg_fee
+FROM Patient INNER JOIN SufferingFrom
+ON Patient.patient_id = SufferingFrom.patient_id
+WHERE Patient.patient_id IN
+(
+    SELECT SufferingFrom.patient_id
+    FROM SufferingFrom
+    WHERE treatment_cost > insurance_coverage
+    INTERSECT
+    SELECT SufferingFrom.patient_id
+    FROM SufferingFrom
+    WHERE ill_since > '2012-01-01'
+)
+GROUP BY Patient.last_name, Patient.first_name;
+ first_name | last_name |       avg_fee
+------------+-----------+----------------------
+ Coreey     | Brewer    | 120.0000000000000000
+ Blaire     | DeJuan    | 140.0000000000000000
+ Kent       | Bazemore  | 160.0000000000000000
+ Arron      | Afflalo   | 120.0000000000000000
+ Coles      | Aldrich   | 140.0000000000000000
+(5 rows)
+
+/* Query 5 */
+-- Det dept_name of departments that don't have as many stethoscopes as doctors.
+-- Used EXCEPT because it better handles cases where there is no DeptHasEqpt relation.
+-- If we didn't use EXCEPT, then there would have to be a lot of nested queries and
+-- performance would have been worse.
+SELECT dept_name from Department
+EXCEPT
+SELECT dept_name FROM Department D
+WHERE
+    (SELECT current_stock FROM DeptHasEqpt
+    WHERE DeptHasEqpt.dept_name = D.dept_name
+    AND eqpt_id = (SELECT eqpt_id FROM Equipment
+                     WHERE eqpt_name LIKE '%Stethoscope%')) -- Number of stethoscopes
+    >=
+    (SELECT COUNT(*) FROM Doctor, Staff
+    WHERE Doctor.staff_id = Staff.staff_id
+    AND Staff.dept_name = D.dept_name); -- Number of doctors in the department
+      dept_name
+---------------------
+ Pediatrics
+ Gynecology
+ Endocrinology
+ Cardiology
+ Dermatology
+ Infectious Diseases
+(6 rows)
+
+
+============ QUESTION 6 Execution Responses ============
+-- Increase the price of all equipments produced by Big Pharma Inc by 10% to reflect recent increases
+-- in trade tariffs experienced by this company (updating multiple tuples).
+-- The three tuples that satisfy this are:
+--  (1014, 'Penicillin', 'Big Pharma Inc.', '9.99', TRUE),
+--  (1015, 'Advil', 'Big Pharma Inc.', '8.99', TRUE),
+--  (1016, 'Placebo', 'Big Pharma Inc.', '0.99', TRUE),
+UPDATE Equipment
+SET cost = cost*1.1
+WHERE manufacturer = 'Big Pharma Inc.';
+UPDATE 3
+
+-- Assign doctor 34004 to patients suffering from Gastroenteritis that are not being currently treated
+-- and are still ill
+INSERT INTO Treats (staff_id, patient_id, since, until)
+SELECT 34004 as staff_id, patient_id, ill_since, ill_until
+FROM SufferingFrom
+WHERE ill_id = (SELECT ill_id
+                FROM Illness
+                WHERE ill_name like '%Gastroenteritis%')
+AND patient_id NOT IN (SELECT patient_id
+                            FROM Treats)
+AND ill_until IS NULL;
+INSERT 0 4
+
+-- Delete doctors who have treated fewer than 10 patients and had a salary of more than 400000
+-- and whose contract is up (assume that the time now is march 9th 2015)
+-- This can be e.g. due to a new regulation against relatively useless doctors being hired
+DELETE FROM Staff
+WHERE EXISTS (SELECT *
+                FROM Doctor
+                WHERE Doctor.staff_id = Staff.staff_id)
+AND (SELECT COUNT(*)
+            FROM Treats
+            WHERE Treats.staff_id = Staff.staff_id) <= 10
+AND contract_until <= '2015-03-09'
+AND salary >= 400000;
+DELETE 2
+
+-- For every department that doesn't have any stethoscopes, buy as many stethoscopes as there are doctors in the department
+INSERT INTO DeptHasEqpt (dept_name, eqpt_id, amount_needed, current_stock)
+SELECT Dep.dept_name, 1017, count(S.staff_id), count(S.staff_id)
+FROM Department Dep, Staff S, Doctor Doc
+WHERE
+    S.staff_id = Doc.staff_id
+    AND S.dept_name = Dep.dept_name
+    AND Dep.dept_name IN (
+        SELECT dept_name FROM Department  -- Exclude departments that already have stethoscopes
+        EXCEPT
+        SELECT dept_name FROM DeptHasEqpt
+        WHERE eqpt_id = 1017
+    )
+GROUP BY Dep.dept_name;
+INSERT 0 0
