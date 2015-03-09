@@ -25,6 +25,9 @@ INSERT INTO Department VALUES
     ('Psychiatry', '321 Rue Universite Montreal H2H 3P5', '3000000.00', '25000'),
     ('Pediatrics', '321 Rue Universite Montreal H2H 3P5', '5000000.00', '35000'),
     ('Gynecology', '321 Rue Universite Montreal H2H 3P5', '1000000.00', '65000'),
+    ('Dermatology', '321 Rue Universite Montreal H2H 3P5', '500000.00', '15000'),
+    ('Endocrinology', '321 Rue Universite Montreal H2H 3P5', '400000.00', '25000'),
+    ('Genetics', '321 Rue Universite Montreal H2H 3P5', '900000.00', '20000'),
     ('Cardiology', '321 Rue Universite Montreal H2H 3P5', '9000000.00', '30000');
 
 
@@ -97,4 +100,5 @@ INSERT INTO SufferingFrom VALUES
 INSERT INTO DeptHasEqpt VALUES -- Stethoscopes
     ('Oncology', 1017, 10, 10),
     ('Psychiatry', 1017, 12, 10),
+    ('Genetics', 1017, 12, 5),
     ('Infectious Diseases', 1017, 10, 0);
