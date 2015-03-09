@@ -19,8 +19,10 @@ INSERT INTO Treats (staff_id, patient_id, since, until)
 SELECT 34004 as staff_id, patient_id, ill_since, ill_until
 FROM SufferingFrom
 WHERE ill_id = (SELECT ill_id 
-				FROM Illness
-				WHERE ill_name like '%Gastroenteritis%')
-	AND patient_id NOT IN (SELECT patient_id
-							FROM Treats)
-	AND ill_until IS NULL;
+                FROM Illness
+                WHERE ill_name like '%Gastroenteritis%')
+AND patient_id NOT IN (SELECT patient_id
+                            FROM Treats)
+AND ill_until IS NULL;
+
+

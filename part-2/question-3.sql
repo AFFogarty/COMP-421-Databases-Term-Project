@@ -50,6 +50,7 @@ INSERT INTO Staff VALUES (
     34004, 'Infectious Diseases', '120', '375000', '8:00', '19:00', NULL, 
     '2012-06-13', '2015-08-20', '514-001-8270 carnap@hospital.com', 'Rudolf', 'Carnap');
 INSERT INTO Doctor VALUES (34001, '1 Department Head', NULL);
+INSERT INTO Doctor VALUES (34004, NULL, NULL);
 INSERT INTO Nurse VALUES (34002, 'IV');
 INSERT INTO Admin VALUES (34003, 'IT Management');
 INSERT INTO Patient VALUES (691123, 'Claude', 'Debussy', '1951-12-23', '200');
@@ -73,7 +74,7 @@ INSERT INTO SufferingFrom VALUES (691127, 'i0023325', '2013-06-25', '2013-7-01',
 INSERT INTO SufferingFrom VALUES (691128, 'i0023313', '2014-11-23', NULL, '15000');
 INSERT INTO SufferingFrom VALUES (691128, 'i0023325', '2013-07-11', '2013-7-28', '15000');
 INSERT INTO Treats VALUES (34001, 691123, '2015-03-07', NULL);
-INSERT INTO Treats VALUES (34001, 691124, '2015-03-07', '2015-03-31');
+INSERT INTO Treats VALUES (34002, 691123, '2015-03-07', NULL);
 INSERT INTO DeptHasEqpt VALUES ('Infectious Diseases', 1010, NULL, 400);
 INSERT INTO DeptHasEqpt VALUES ('Infectious Diseases', 1011, 75, 75);
 INSERT INTO DeptHasEqpt VALUES ('Cardiology', 1020, 10, 50);
