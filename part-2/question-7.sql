@@ -18,7 +18,7 @@ SELECT SufferingFrom.patient_id, Illness.ill_name
 FROM SufferingFrom 
 INNER JOIN Illness
 ON SufferingFrom.ill_id = Illness.ill_id
-WHERE contagious IS NOT NULL AND contagious = 't';
+WHERE Illness.contagious IS NOT NULL AND Illness.contagious = 't';
 
 DROP VIEW ExpensiveEquipment;
 DROP VIEW PossibleQuarantine;
