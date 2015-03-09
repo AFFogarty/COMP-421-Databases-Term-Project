@@ -34,6 +34,7 @@ INSERT INTO Department VALUES
 INSERT INTO Illness VALUES ('i0023313', 'Gastroenteritis', TRUE, '80.50');
 INSERT INTO Illness VALUES ('i0023325', 'Norovirus', TRUE, '120');
 INSERT INTO Equipment VALUES (1010, 'Syringe', 'Bayer', '2.50', TRUE);
+INSERT INTO Equipment VALUES (1020, 'Defibrillator', 'Heart Co. Ltd. Inc.', '2500', TRUE);
 INSERT INTO Department VALUES (
     'Infectious Diseases', '321 Rue Universite Montreal H2H 3P5', '7000000.33', '45000');
 INSERT INTO Staff VALUES (
@@ -52,12 +53,31 @@ INSERT INTO Doctor VALUES (34001, '1 Department Head', NULL);
 INSERT INTO Nurse VALUES (34002, 'IV');
 INSERT INTO Admin VALUES (34003, 'IT Management');
 INSERT INTO Patient VALUES (691123, 'Claude', 'Debussy', '1951-12-23', '200');
+INSERT INTO Patient VALUES (691124, 'Maurice', 'Ravel', '1951-12-27', '100');
+INSERT INTO Patient VALUES (691125, 'John', 'Cage', '1952-12-27', '200');
+INSERT INTO Patient VALUES (691126, 'Philip', 'Glass', '1952-04-03', '200');
+INSERT INTO Patient VALUES (691127, 'Karlheinz', 'Stockhausen', '1949-04-13', '200');
+INSERT INTO Patient VALUES (691128, 'Anton', 'Webern', '1945-04-23', '200');
 INSERT INTO SpecializesIn VALUES (34001, 'i0023313');
 INSERT INTO SufferingFrom VALUES (691123, 'i0023313', '2015-03-07', NULL, '2000');
 INSERT INTO SufferingFrom VALUES (691123, 'i0023325', '2014-05-15', '2014-06-01', '2000');
+INSERT INTO SufferingFrom VALUES (691124, 'i0023313', '2015-03-07', '2015-03-31', '1000');
+INSERT INTO SufferingFrom VALUES (691124, 'i0023325', '2014-05-19', '2014-06-04', '1000');
+INSERT INTO SufferingFrom VALUES (691125, 'i0023313', '2014-12-07', NULL, '1000');
+INSERT INTO SufferingFrom VALUES (691125, 'i0023325', '2013-09-15', '2013-10-01', '1000');
+INSERT INTO SufferingFrom VALUES (691126, 'i0023313', '2014-11-08', NULL, '2500');
+INSERT INTO SufferingFrom VALUES (691126, 'i0023325', '2013-03-21', '2013-04-01', '2500');
+INSERT INTO SufferingFrom VALUES (691127, 'i0023313', '2014-12-10', NULL, '2000');
+INSERT INTO SufferingFrom VALUES (691127, 'i0023325', '2013-06-25', '2013-7-01', '2000');
+INSERT INTO SufferingFrom VALUES (691128, 'i0023313', '2014-11-23', NULL, '15000');
+INSERT INTO SufferingFrom VALUES (691128, 'i0023325', '2013-07-11', '2013-7-28', '15000');
 INSERT INTO Treats VALUES (34001, 691123, '2015-03-07', NULL);
+INSERT INTO Treats VALUES (34001, 691124, '2015-03-07', '2015-03-31');
 INSERT INTO DeptHasEqpt VALUES ('Infectious Diseases', 1010, NULL, 400);
 INSERT INTO DeptHasEqpt VALUES ('Infectious Diseases', 1011, 75, 75);
+INSERT INTO DeptHasEqpt VALUES ('Cardiology', 1020, 10, 50);
+INSERT INTO DeptHasEqpt VALUES ('Psychiatry', 1016, 2000, 2000);
+INSERT INTO DeptHasEqpt VALUES ('Oncology', 1015, 2000, 2000);
 
 
 /* Data for Query 2 */

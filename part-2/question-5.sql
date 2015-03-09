@@ -1,17 +1,19 @@
 /* Query 1 */
 
--- Get first name, last name from patients who have gastroenteritis and had norovirus before and recovered
+-- Get first name, last name from patients who have gastroenteritis and had norovirus before and recovered,
+-- Order by last name
 SELECT first_name, last_name
 FROM Patient
 WHERE patient_id IN (SELECT patient_id
                     FROM SufferingFrom INNER JOIN Illness
                     ON SufferingFrom.ill_id = Illness.ill_id
-                    WHERE ill_name LIKE '%Gastroenteritis%'
+                    WHERE ill_name LIKE '%Gastroenteritis%' AND ill_until IS NULL
                     INTERSECT 
                     SELECT patient_id
                     FROM SufferingFrom INNER JOIN Illness
                     ON SufferingFrom.ill_id = Illness.ill_id
-                    WHERE ill_name LIKE '%Norovirus%' AND ill_until IS NOT NULL);
+                    WHERE ill_name LIKE '%Norovirus%' AND ill_until IS NOT NULL)
+ORDER BY last_name;
 
 
 /* Query 2 */
@@ -33,15 +35,17 @@ WHERE S.dept_name LIKE '%Oncology%'
 
 /* Query 3 */
 -- Get the department, equipment, manufacturer, and total cost to restock for departments needing pieces 
--- of equipment, and the total cost of restocking all equipment is less than their budget
-SELECT Department.dept_name, eqpt_name, manufacturer, cost*amount_needed AS total_cost
+-- of equipment, and the total cost of restocking all equipment is less than their operating budget
+-- I.e. get depts that can afford to restock all of their needed equipment
+SELECT Department.dept_name, eqpt_name, manufacturer, cost, amount_needed, cost*amount_needed AS total_cost
 FROM Equipment INNER JOIN DeptHasEqpt
 ON Equipment.eqpt_id = DeptHasEqpt.eqpt_id
     INNER JOIN Department
     ON DeptHasEqpt.dept_name = Department.dept_name
 WHERE amount_needed IS NOT NULL
 GROUP BY Department.dept_name, eqpt_name, manufacturer, cost, amount_needed, budget
-    HAVING SUM(cost*amount_needed) < budget;
+    HAVING SUM(cost*amount_needed) <= budget
+ORDER BY Department.dept_name;
 
 
 /* Query 4 */
