@@ -130,5 +130,4 @@ INSERT INTO Treats VALUES
 INSERT INTO DeptHasEqpt VALUES -- Stethoscopes
     ('Oncology', 1017, 10, 10),
     ('Psychiatry', 1017, 12, 10),
-    ('Genetics', 1017, 12, 5),
-    ('Infectious Diseases', 1017, 10, 0);
+    ('Genetics', 1017, 12, 5);

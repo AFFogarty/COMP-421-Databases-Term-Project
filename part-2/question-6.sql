@@ -36,3 +36,19 @@ AND (SELECT COUNT(*)
             WHERE Treats.staff_id = Staff.staff_id) <= 10
 AND salary >= 400000;
 
+
+-- For every department that doesn't have any stethoscopes, buy as many stethoscopes as there are doctors in the department
+
+INSERT INTO DeptHasEqpt (dept_name, eqpt_id, amount_needed, current_stock)
+SELECT Dep.dept_name, 1017, count(S.staff_id), count(S.staff_id)
+FROM Department Dep, Staff S, Doctor Doc
+WHERE 
+    S.staff_id = Doc.staff_id
+    AND S.dept_name = Dep.dept_name
+    AND Dep.dept_name IN (
+        SELECT dept_name FROM Department  -- Exclude departments that already have stethoscopes
+        EXCEPT
+        SELECT dept_name FROM DeptHasEqpt
+        WHERE eqpt_id = 1017
+    )
+GROUP BY Dep.dept_name;
