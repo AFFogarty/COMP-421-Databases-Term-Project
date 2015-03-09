@@ -75,3 +75,18 @@ INSERT INTO Doctor VALUES
     (34091, 'Surgeon', 'Some certifications'),
     (34092, 'Surgeon', 'Some certifications'),
     (34093, 'Surgeon', 'Some certifications');
+
+
+/* Data for Query 4 */
+INSERT INTO Patient VALUES
+    (690000, 'Arron', 'Afflalo', '1980-10-11', '120'),
+    (690001, 'Coles', 'Aldrich', '1981-02-23', '140'),
+    (690002, 'Kent', 'Bazemore', '1985-06-17', '160'),
+    (690003, 'Blaire', 'DeJuan', '1982-04-08', '140'),
+    (690004, 'Coreey', 'Brewer', '1988-03-25', '120');
+INSERT INTO SufferingFrom VALUES
+    (690000, 'i0023358', '2013-02-03', NULL, 60, 120, NULL),
+    (690001, 'i0023359', '2014-01-02', NULL, 100, 130, NULL),
+    (690002, 'i0023361', '2013-07-08', NULL, 200, 140, NULL),
+    (690003, 'i0023362', '2008-08-20', NULL, 60, 120, NULL),
+    (690004, 'i0023363', '2006-12-14', NULL, 80, 120, NULL);
