@@ -48,7 +48,7 @@ CREATE TABLE Staff (
     first_name VARCHAR(32) NOT NULL,
     last_name VARCHAR(32) NOT NULL,
     FOREIGN KEY (dept_name)
-        REFERENCES Department(dept_name)
+        REFERENCES Department(dept_name) ON DELETE CASCADE
 );
 
 CREATE TABLE Doctor (
@@ -56,21 +56,21 @@ CREATE TABLE Doctor (
     rank VARCHAR(32),
     board_certification TEXT,
     FOREIGN KEY (staff_id)
-        REFERENCES Staff(staff_id)
+        REFERENCES Staff(staff_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Nurse (
     staff_id INTEGER PRIMARY KEY,
     certified_skills TEXT,
     FOREIGN KEY (staff_id)
-        REFERENCES Staff(staff_id)
+        REFERENCES Staff(staff_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Admin (
     staff_id INTEGER PRIMARY KEY,
     admin_responsibilities TEXT,
     FOREIGN KEY (staff_id)
-        REFERENCES Staff(staff_id)
+        REFERENCES Staff(staff_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Patient (
@@ -85,7 +85,7 @@ CREATE TABLE SpecializesIn (
     staff_id INTEGER,
     ill_id CHAR(8),
     FOREIGN KEY (staff_id)  
-        REFERENCES Staff(staff_id),
+        REFERENCES Staff(staff_id) ON DELETE CASCADE,
     FOREIGN KEY (ill_id)
         REFERENCES Illness(ill_id),
     PRIMARY KEY (staff_id, ill_id)
@@ -100,9 +100,9 @@ CREATE TABLE SufferingFrom (
     treatment_cost NUMERIC(15,2),
     urgency VARCHAR(32),
     FOREIGN KEY (patient_id)
-        REFERENCES Patient(patient_id),
+        REFERENCES Patient(patient_id) ON DELETE CASCADE,
     FOREIGN KEY (ill_id)
-        REFERENCES Illness(ill_id),
+        REFERENCES Illness(ill_id) ON DELETE CASCADE,
     PRIMARY KEY (patient_id, ill_id)
 );
 
@@ -112,9 +112,9 @@ CREATE TABLE Treats (
     since DATE NOT NULL,
     until DATE,
     FOREIGN KEY (staff_id)
-        REFERENCES Staff(staff_id),
+        REFERENCES Staff(staff_id) ON DELETE CASCADE,
     FOREIGN KEY (patient_id)
-        REFERENCES Patient(patient_id),
+        REFERENCES Patient(patient_id) ON DELETE CASCADE,
     PRIMARY KEY (staff_id, patient_id)
 );
 
@@ -124,7 +124,7 @@ CREATE TABLE DeptHasEqpt (
     amount_needed INTEGER,
     current_stock INTEGER NOT NULL,
     FOREIGN KEY (dept_name)
-        REFERENCES Department(dept_name),
+        REFERENCES Department(dept_name) ON DELETE CASCADE,
     FOREIGN KEY (eqpt_id)
         REFERENCES Equipment(eqpt_id),
     PRIMARY KEY (dept_name, eqpt_id)

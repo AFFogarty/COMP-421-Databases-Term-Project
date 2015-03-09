@@ -25,4 +25,3 @@ AND patient_id NOT IN (SELECT patient_id
                             FROM Treats)
 AND ill_until IS NULL;
 
-
