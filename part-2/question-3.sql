@@ -127,6 +127,6 @@ INSERT INTO DeptHasEqpt VALUES -- Stethoscopes
     ('Infectious Diseases', 1011, 75, 75),
     ('Cardiology', 1020, 10, 50),
     ('Psychiatry', 1016, 2000, 2000),
-    ('Oncology', 1015, 2000, 2000);
+    ('Oncology', 1015, 2000, 2000),
     ('Genetics', 1017, 12, 5);
 
