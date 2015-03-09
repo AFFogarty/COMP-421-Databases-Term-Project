@@ -135,6 +135,3 @@ CREATE TABLE InChargeOf (
     dept_name VARCHAR(64),
     since DATE
 );
-
-
-

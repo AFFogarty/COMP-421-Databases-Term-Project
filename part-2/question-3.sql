@@ -30,7 +30,6 @@ INSERT INTO Department VALUES
     ('Genetics', '321 Rue Universite Montreal H2H 3P5', '900000.00', '20000'),
     ('Cardiology', '321 Rue Universite Montreal H2H 3P5', '9000000.00', '30000');
 
-
 INSERT INTO Illness VALUES ('i0023313', 'Gastroenteritis', TRUE, '80.50');
 INSERT INTO Illness VALUES ('i0023325', 'Norovirus', TRUE, '120');
 INSERT INTO Equipment VALUES (1010, 'Syringe', 'Bayer', '2.50', TRUE);
@@ -102,7 +101,7 @@ INSERT INTO Doctor VALUES
     (34093, 'Surgeon', 'Some certifications');
 
 
-/* Data for Query 4 */
+/* Data for Query 4 of Question 5 */
 INSERT INTO Patient VALUES
     (690000, 'Arron', 'Afflalo', '1980-10-11', '120'),
     (690001, 'Coles', 'Aldrich', '1981-02-23', '140'),
@@ -112,9 +111,18 @@ INSERT INTO Patient VALUES
 INSERT INTO SufferingFrom VALUES
     (690000, 'i0023358', '2013-02-03', NULL, 60, 120, NULL),
     (690001, 'i0023359', '2014-01-02', NULL, 100, 130, NULL),
-    (690002, 'i0023361', '2013-07-08', NULL, 200, 140, NULL),
-    (690003, 'i0023362', '2008-08-20', NULL, 60, 120, NULL),
-    (690004, 'i0023363', '2006-12-14', NULL, 80, 120, NULL);
+    (690002, 'i0023361', '2013-07-08', NULL, 100, 140, NULL),
+    (690003, 'i0023362', '2014-08-20', NULL, 20, 120, NULL),
+    (690004, 'i0023363', '2012-12-14', NULL, 30, 120, NULL);
+
+/* Inserts for Treats */
+INSERT INTO Treats VALUES
+    (34002, 690000, '2013-02-03', NULL),
+    (34090, 690000, '2013-02-04', NULL),
+    (34002, 690001, '2014-01-02', NULL),
+    (34091, 690001, '2014-01-02', NULL),
+    (34092, 690002, '2013-07-08', NULL),
+    (34093, 690003, '2014-08-21', NULL);
 
 /* Data for Query 5 */
 
