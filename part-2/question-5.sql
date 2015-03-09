@@ -16,6 +16,21 @@ WHERE patient_id IN (SELECT patient_id
 
 /* Query 2 */
 
+-- select staff_id, first_name, last_name of doctors and nurses from the oncology department working between midnight and 3am
+
+SELECT S.staff_id, first_name, last_name
+FROM Staff S INNER JOIN Doctor D
+ON S.staff_id = D.staff_id
+    FULL OUTER JOIN Nurse N
+    ON S.staff_id = N.staff_id
+WHERE S.dept_name LIKE '%Oncology%'
+    AND (
+        shift_from <= '03:00:00' -- Shift ends between midnight and 3am
+        OR shift_to <='03:00:00' -- Shift begins between midnight and 3am
+        OR (shift_to > '03:00:00' AND shift_from > shift_to)  -- Shift begins before midnight and ends after 3am
+    );
+
+
 
 /* Query 3 */
 -- Get the department, equipment, manufacturer, and total cost to restock for departments needing pieces 
