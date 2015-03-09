@@ -41,7 +41,6 @@ AND salary >= 400000;
 
 
 -- For every department that doesn't have any stethoscopes, buy as many stethoscopes as there are doctors in the department
-
 INSERT INTO DeptHasEqpt (dept_name, eqpt_id, amount_needed, current_stock)
 SELECT Dep.dept_name, 1017, count(S.staff_id), count(S.staff_id)
 FROM Department Dep, Staff S, Doctor Doc

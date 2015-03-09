@@ -1,10 +1,9 @@
 -- Question 3 5 queries
-INSERT INTO Illness VALUES
-    ('i0023358','unclassified disorders of the trigeminal nerves', TRUE, '635.90'),
-    ('i0023359','unspecified type of hypertension complicating pregnancy', FALSE, '642.09'),
-    ('i0023361','complication due to diabetes mellitus of the mother', FALSE, '648.03'),
-    ('i0023362','antepartum condition or complication due to triplet pregnancy', FALSE, '651.13'),
-    ('i0023363','unclassified disorders of the hand joints', FALSE, '719.84');
+INSERT INTO Illness VALUES ('i0023358','unclassified disorders of the trigeminal nerves', TRUE, '635.90');
+INSERT INTO Illness VALUES ('i0023359','unspecified type of hypertension complicating pregnancy', FALSE, '642.09');
+INSERT INTO Illness VALUES ('i0023361','complication due to diabetes mellitus of the mother', FALSE, '648.03');
+INSERT INTO Illness VALUES ('i0023362','antepartum condition or complication due to triplet pregnancy', FALSE, '651.13');
+INSERT INTO Illness VALUES ('i0023363','unclassified disorders of the hand joints', FALSE, '719.84');
 
 
 -- Question 4 population of database
@@ -108,6 +107,7 @@ INSERT INTO SufferingFrom VALUES
 
 INSERT INTO SpecializesIn VALUES (34001, 'i0023313');
 INSERT INTO SpecializesIn VALUES (34004, 'i0023313');
+
 INSERT INTO Treats VALUES
     (34002, 690000, '2013-02-03', NULL),
     (34090, 690000, '2013-02-04', NULL),

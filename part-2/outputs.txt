@@ -1,0 +1,80 @@
+============ QUESTION 2.(ii) ============
+
+CS421=> TABLE Illness;
+ ill_id | ill_name | contagious | average_treatment_cost
+--------+----------+------------+------------------------
+(0 rows)
+CS421=> TABLE Equipment;
+ eqpt_id | eqpt_name | manufacturer | cost | consumable
+---------+-----------+--------------+------+------------
+(0 rows)
+CS421=> TABLE Department;
+ dept_name | address | budget | other_costs
+-----------+---------+--------+-------------
+(0 rows)
+CS421=> TABLE Staff;
+ staff_id | dept_name | wages | salary | shift_to | shift_from | over_time | contract_from | contract_until | contact | first_name |
+ last_name
+----------+-----------+-------+--------+----------+------------+-----------+---------------+----------------+---------+------------+
+-----------
+(0 rows)
+CS421=> TABLE Doctor;
+ staff_id | rank | board_certification
+----------+------+---------------------
+(0 rows)
+CS421=> TABLE Nurse;
+ staff_id | certified_skills
+----------+------------------
+(0 rows)
+CS421=> TABLE Admin;
+ staff_id | admin_responsibilities
+----------+------------------------
+(0 rows)
+CS421=> TABLE Patient;
+ patient_id | first_name | last_name | date_of_birth | care_cost
+------------+------------+-----------+---------------+-----------
+(0 rows)
+CS421=> TABLE SpecializesIn;
+ staff_id | ill_id
+----------+--------
+(0 rows)
+CS421=> TABLE SufferingFrom;
+ patient_id | ill_id | ill_since | ill_until | insurance_coverage | treatment_cost | urgency
+------------+--------+-----------+-----------+--------------------+----------------+---------
+(0 rows)
+CS421=> TABLE Treats;
+ staff_id | patient_id | since | until
+----------+------------+-------+-------
+(0 rows)
+CS421=> TABLE DeptHasEqpt;
+ dept_name | eqpt_id | amount_needed | current_stock
+-----------+---------+---------------+---------------
+(0 rows)
+
+
+============ QUESTION 3 INSERT Responses ============
+
+INSERT INTO Illness VALUES
+    ('i0023358','unclassified disorders of the trigeminal nerves', TRUE, '635.90'),
+    ('i0023359','unspecified type of hypertension complicating pregnancy', FALSE, '642.09'),
+    ('i0023361','complication due to diabetes mellitus of the mother', FALSE, '648.03'),
+    ('i0023362','antepartum condition or complication due to triplet pregnancy', FALSE, '651.13'),
+    ('i0023363','unclassified disorders of the hand joints', FALSE, '719.84');
+INSERT 0 5
+
+
+============ QUESTION 3 SELECT * Responses ============
+
+CS421=> SELECT * FROM ILLNESS;
+  ill_id  |                           ill_name                            | contagious | average_treatment_cost
+----------+---------------------------------------------------------------+------------+------------------------
+ i0023358 | unclassified disorders of the trigeminal nerves               | t          |                 635.90
+ i0023359 | unspecified type of hypertension complicating pregnancy       | f          |                 642.09
+ i0023361 | complication due to diabetes mellitus of the mother           | f          |                 648.03
+ i0023362 | antepartum condition or complication due to triplet pregnancy | f          |                 651.13
+ i0023363 | unclassified disorders of the hand joints                     | f          |                 719.84
+(5 rows)
+
+
+============ QUESTION 4 SELECT * Responses ============
+
