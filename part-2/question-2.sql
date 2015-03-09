@@ -130,8 +130,4 @@ CREATE TABLE DeptHasEqpt (
     PRIMARY KEY (dept_name, eqpt_id)
 );
 
-CREATE TABLE InChargeOf (
-    patient_id INTEGER PRIMARY KEY REFERENCES Patient(patient_id),
-    dept_name VARCHAR(64),
-    since DATE
-);
+
