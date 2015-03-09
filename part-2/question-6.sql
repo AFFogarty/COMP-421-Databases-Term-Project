@@ -25,3 +25,14 @@ AND patient_id NOT IN (SELECT patient_id
                             FROM Treats)
 AND ill_until IS NULL;
 
+
+-- Delete doctors who earn more than 400000 per annum and are treating fewer than 10 patients
+DELETE FROM Staff
+WHERE EXISTS (SELECT *
+                FROM Doctor
+                WHERE Doctor.staff_id = Staff.staff_id)
+AND (SELECT COUNT(*) 
+            FROM Treats
+            WHERE Treats.staff_id = Staff.staff_id) <= 10
+AND salary >= 400000;
+
