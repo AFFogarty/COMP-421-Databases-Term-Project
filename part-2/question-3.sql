@@ -17,7 +17,8 @@ INSERT INTO Equipment VALUES
     (1013, 'Calipers', 'E.T. & Company', '29.99', FALSE),
     (1014, 'Penicillin', 'Big Pharma Ic.', '9.99', TRUE),
     (1015, 'Advil', 'Big Pharma Inc.', '8.99', TRUE),
-    (1016, 'Placebo', 'Big Pharma Inc.', '0.99', TRUE);
+    (1016, 'Placebo', 'Big Pharma Inc.', '0.99', TRUE),
+    (1017, 'Stethoscope', 'Stethoscopes Inc.', '39.99', FALSE);
 
 INSERT INTO Department VALUES
     ('Oncology', '321 Rue Universite Montreal H2H 3P5', '7000000.00', '45000'),
@@ -90,3 +91,10 @@ INSERT INTO SufferingFrom VALUES
     (690002, 'i0023361', '2013-07-08', NULL, 200, 140, NULL),
     (690003, 'i0023362', '2008-08-20', NULL, 60, 120, NULL),
     (690004, 'i0023363', '2006-12-14', NULL, 80, 120, NULL);
+
+/* Data for Query 5 */
+
+INSERT INTO DeptHasEqpt VALUES -- Stethoscopes
+    ('Oncology', 1017, 10, 10),
+    ('Psychiatry', 1017, 12, 10),
+    ('Infectious Diseases', 1017, 10, 0);

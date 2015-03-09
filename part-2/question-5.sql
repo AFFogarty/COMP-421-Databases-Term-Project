@@ -63,3 +63,16 @@ WHERE Patient.patient_id IN
 GROUP BY Patient.last_name, Patient.first_name;
 
 /* Query 5 */
+
+-- Det dept_name of departments that have at least as many stethoscopes as doctors
+
+SELECT dept_name FROM Department D
+WHERE
+    (SELECT current_stock FROM DeptHasEqpt
+    WHERE DeptHasEqpt.dept_name = D.dept_name
+    AND eqpt_id = (SELECT eqpt_id FROM Equipment
+                     WHERE eqpt_name LIKE '%Stethoscope%')) -- Number of stethoscopes
+    >=
+    (SELECT COUNT(*) FROM Doctor, Staff
+    WHERE Doctor.staff_id = Staff.staff_id
+    AND Staff.dept_name = D.dept_name); -- Number of doctors in the department
