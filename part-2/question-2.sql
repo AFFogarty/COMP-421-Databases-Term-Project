@@ -16,29 +16,29 @@ CREATE TABLE Illness (
     ill_id char(8) PRIMARY KEY,
     ill_name VARCHAR(64),
     contagious BOOLEAN,
-    average_treatment_cost MONEY
+    average_treatment_cost NUMERIC(15,2)
 );
 
 CREATE TABLE Equipment (
     eqpt_id INTEGER PRIMARY KEY,
     eqpt_name VARCHAR(64),
     manufacturer VARCHAR(64),
-    cost MONEY,
+    cost NUMERIC(15,2),
     consumable BOOLEAN NOT NULL
 );
 
 CREATE TABLE Department (
     dept_name VARCHAR(64) PRIMARY KEY,
     address TEXT NOT NULL,
-    budget MONEY NOT NULL,
-    other_costs MONEY
+    budget NUMERIC(15,2) NOT NULL,
+    other_costs NUMERIC(15,2)
 );
 
 CREATE TABLE Staff (
     staff_id INTEGER PRIMARY KEY,
     dept_name VARCHAR(64) NOT NULL,
-    wages MONEY,
-    salary MONEY NOT NULL,
+    wages NUMERIC(15,2),
+    salary NUMERIC(15,2) NOT NULL,
     shift_to TIME,
     shift_from TIME,
     over_time FLOAT,
@@ -78,7 +78,7 @@ CREATE TABLE Patient (
     first_name VARCHAR(32) NOT NULL,
     last_name VARCHAR(32) NOT NULL,
     date_of_birth DATE NOT NULL,
-    care_cost MONEY
+    care_cost NUMERIC(15,2)
 );
 
 CREATE TABLE SpecializesIn (
@@ -96,8 +96,8 @@ CREATE TABLE SufferingFrom (
     ill_id CHAR(8),
     ill_since DATE NOT NULL,
     ill_until DATE,
-    insurance_coverage MONEY,
-    treatment_cost MONEY,
+    insurance_coverage NUMERIC(15,2),
+    treatment_cost NUMERIC(15,2),
     urgency VARCHAR(32),
     FOREIGN KEY (patient_id)
         REFERENCES Patient(patient_id),
