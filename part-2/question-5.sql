@@ -60,6 +60,6 @@ WHERE Patient.patient_id IN
     FROM SufferingFrom
     WHERE ill_since > '2012-01-01'
 )
-GROUP BY Patient.last_name;
+GROUP BY Patient.last_name, Patient.first_name;
 
 /* Query 5 */
