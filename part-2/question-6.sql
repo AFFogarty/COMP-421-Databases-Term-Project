@@ -26,7 +26,9 @@ AND patient_id NOT IN (SELECT patient_id
 AND ill_until IS NULL;
 
 
--- Delete doctors who earn more than 400000 per annum and are treating fewer than 10 patients
+-- Delete doctors who have treated fewer than 10 patients and had a salary of more than 400000 
+-- and whose contract is up (assume that the time now is march 9th 2015)
+-- This can be e.g. due to a new regulation against relatively useless doctors being hired
 DELETE FROM Staff
 WHERE EXISTS (SELECT *
                 FROM Doctor
@@ -34,6 +36,7 @@ WHERE EXISTS (SELECT *
 AND (SELECT COUNT(*) 
             FROM Treats
             WHERE Treats.staff_id = Staff.staff_id) <= 10
+AND contract_until <= '2015-03-09'
 AND salary >= 400000;
 
 

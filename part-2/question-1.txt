@@ -10,7 +10,6 @@ Entities:
 
 Relations:
     Has(dept_name, eqpt_name, amount_needed, current_stock)
-    InChargeOf(patient_id, dept_name, since)
     SpecializesIn(staff_id, ill_name )
     SufferingFrom(patient_id, ill_name, ill_since, ill_until, insurance_coverage, treatment_cost, urgency)
     Treats(staff_id, patient_id, since)

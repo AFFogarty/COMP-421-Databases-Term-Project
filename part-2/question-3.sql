@@ -48,7 +48,15 @@ INSERT INTO Staff VALUES (
 INSERT INTO Staff VALUES (
     34004, 'Infectious Diseases', '120', '375000', '8:00', '19:00', NULL, 
     '2012-06-13', '2015-08-20', '514-001-8270 carnap@hospital.com', 'Rudolf', 'Carnap');
-INSERT INTO Doctor VALUES (34001, '1 Department Head', NULL);
+INSERT INTO Staff VALUES (
+    34111, 'Genetics', '120.00', '400001.00', '16:00', '02:00', NULL, 
+    '2010-02-03', '2014-07-18', '514-001-1344 descartes@hospital.com', 'Rene', 'Descartes');
+INSERT INTO Staff VALUES (
+    34112, 'Genetics', '120.00', '400001.00', '16:00', '02:00', NULL, 
+    '2010-02-03', '2014-07-18', '514-001-1350 spinoza@hospital.com', 'Baruch', 'Spinoza');
+INSERT INTO Doctor VALUES (34111, 'Department Head', NULL);
+INSERT INTO Doctor VALUES (34112, 'Head Pathologist', 'Certification');
+INSERT INTO Doctor VALUES (34001, 'Department Head', NULL);
 INSERT INTO Doctor VALUES (34004, NULL, NULL);
 INSERT INTO Nurse VALUES (34002, 'IV');
 INSERT INTO Admin VALUES (34003, 'IT Management');
@@ -94,6 +102,7 @@ INSERT INTO Staff VALUES (
 INSERT INTO Staff VALUES (
     34093, 'Infectious Diseases', '87.00', '310000.00', '00:30', '5:00', NULL, 
     '2012-05-08', '2016-10-19', '514-001-8245 dasein@hospital.com', 'Martin', 'Heidegger');
+
 
 INSERT INTO Doctor VALUES
     (34090, 'Top Surgeon', 'Some certifications'),
