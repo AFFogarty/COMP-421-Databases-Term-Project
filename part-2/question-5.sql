@@ -47,9 +47,24 @@ GROUP BY Department.dept_name, eqpt_name, manufacturer, cost, amount_needed, bud
 
 
 /* Query 4 */
-
+--list patient's first name and last name and the average cost incurred by all patients for patients 
+--whose insurance does not fully cover their treatment costs and has been ill since 2012.
+SELECT 
+Patient.first_name, 
+Patient.last_name, 
+avg(Patient.care_cost) AS avg_fee
+FROM Patient INNER JOIN SufferingFrom
+ON Patient.patient_id = SufferingFrom.patient_id
+WHERE Patient.patient_id IN
+(
+    SELECT SufferingFrom.patient_id
+    FROM SufferingFrom
+    WHERE treatment_cost > insurance_coverage
+    INTERSECT
+    SELECT SufferingFrom.patient_id
+    FROM SufferingFrom
+    WHERE ill_since > '2012-01-01'
+)
+GROUP BY Patient.last_name;
 
 /* Query 5 */
-
-
-
