@@ -55,7 +55,19 @@ INSERT INTO Staff VALUES
     (34092, 'Oncology', '82.00', '270000.00', '20:00', '11:30', NULL, 
     '2010-09-12', '2016-01-13', '514-001-9812 hume@hospital.com', 'David', 'Hume'),
     (34093, 'Infectious Diseases', '87.00', '310000.00', '00:30', '5:00', NULL, 
-    '2012-05-08', '2016-10-19', '514-001-8245 dasein@hospital.com', 'Martin', 'Heidegger');
+    '2012-05-08', '2016-10-19', '514-001-8245 dasein@hospital.com', 'Martin', 'Heidegger'); 
+    (34100, 'Dermatology', '20.00', '24000.00', '00:30', '05:00', NULL, 
+    '2011-04-12', '2016-04-11', '514-222-8245 amlou@hospital.com', 'Amundson', 'Lou');
+    (34101, 'Dermatology', '20.00', '24000.00', '00:30', '05:00', NULL, 
+    '2012-04-12', '2015-04-11', '514-222-8246 kanderson@hospital.com', 'Kyle', 'Anderson');
+    (34102, 'Pediatrics', '50.00', '60000.00', '01:30', '05:30', NULL, 
+    '2014-12-01', '2016-11-01', '514-222-8247 jant@hospital.com', 'Joel', 'Anthony');
+    (34103, 'Cardiology', '100.00', '120000.00', '16:30', '08:00', NULL, 
+    '2011-06-21', '2017-10-19', '514-223-8248 justholiday@hospital.com', 'Justin', 'Holiday');
+    (34104, 'Cardiology', '100.00', '120000.00', '14:30', '06:00', NULL, 
+    '2012-05-08', '2016-01-20', '514-223-8249 jhenson@hospital.com', 'John', 'Henson');
+    (34105, 'Infectious Diseases', '80.00', '96000.00', '18:30', '12:00', NULL, 
+    '2013-01-01', '2014-01-01', '514-223-8250 regjackson@hospital.com', 'Reggie', 'Jackson');
 
 INSERT INTO Doctor VALUES
     (34090, 'Top Surgeon', 'Some certifications'),
@@ -67,8 +79,17 @@ INSERT INTO Doctor VALUES
     (34001, 'Department Head', NULL),
     (34004, NULL, NULL);
 
-INSERT INTO Nurse VALUES (34002, 'IV');
-INSERT INTO Admin VALUES (34003, 'IT Management');
+INSERT INTO Nurse VALUES 
+    (34002, 'IV'),
+    (34100, 'Wound care'),
+    (34101, 'Sedation'),
+    (34103, 'ACLS');
+
+INSERT INTO Admin VALUES 
+    (34003, 'IT Management'),
+    (34102, 'Reception'),
+    (34104, 'EKG Testing'),
+    (34105, 'Biohazardous Waste Management');
 
 INSERT INTO Patient VALUES
     (690000, 'Arron', 'Afflalo', '1980-10-11', '120'),
