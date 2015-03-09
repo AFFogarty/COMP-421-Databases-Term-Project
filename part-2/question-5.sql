@@ -31,7 +31,6 @@ WHERE S.dept_name LIKE '%Oncology%'
     );
 
 
-
 /* Query 3 */
 -- Get the department, equipment, manufacturer, and total cost to restock for departments needing pieces 
 -- of equipment, and the total cost of restocking all equipment is less than their budget
@@ -45,14 +44,10 @@ GROUP BY Department.dept_name, eqpt_name, manufacturer, cost, amount_needed, bud
     HAVING SUM(cost*amount_needed) < budget;
 
 
-
 /* Query 4 */
 --list patient's first name and last name and the average cost incurred by all patients for patients 
 --whose insurance does not fully cover their treatment costs and has been ill since 2012.
-SELECT 
-Patient.first_name, 
-Patient.last_name, 
-avg(Patient.care_cost) AS avg_fee
+SELECT Patient.first_name, Patient.last_name, AVG(Patient.care_cost) AS avg_fee
 FROM Patient INNER JOIN SufferingFrom
 ON Patient.patient_id = SufferingFrom.patient_id
 WHERE Patient.patient_id IN
@@ -65,6 +60,6 @@ WHERE Patient.patient_id IN
     FROM SufferingFrom
     WHERE ill_since > '2012-01-01'
 )
-GROUP BY Patient.last_name;
+GROUP BY Patient.last_name, Patient.first_name;
 
 /* Query 5 */
