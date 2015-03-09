@@ -1,10 +1,14 @@
--- Question 4 queries to fill up the database
+-- Question 3 5 queries
 INSERT INTO Illness VALUES
     ('i0023358','unclassified disorders of the trigeminal nerves', TRUE, '635.90'),
     ('i0023359','unspecified type of hypertension complicating pregnancy', FALSE, '642.09'),
     ('i0023361','complication due to diabetes mellitus of the mother', FALSE, '648.03'),
     ('i0023362','antepartum condition or complication due to triplet pregnancy', FALSE, '651.13'),
-    ('i0023363','unclassified disorders of the hand joints', FALSE, '719.84'),
+    ('i0023363','unclassified disorders of the hand joints', FALSE, '719.84');
+
+
+-- Question 4 population of database
+INSERT INTO Illness VALUES
     ('i0023364','unspecified type of goiter', TRUE, '240.90'),
     ('i0023366','schizophrenic disorders', FALSE, '295.00'),
     ('i0023378','cancer arising from a poorly defined location', FALSE, '195.00'),
