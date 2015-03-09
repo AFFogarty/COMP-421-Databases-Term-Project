@@ -64,8 +64,14 @@ GROUP BY Patient.last_name, Patient.first_name;
 
 /* Query 5 */
 
--- Det dept_name of departments that have at least as many stethoscopes as doctors
+-- Det dept_name of departments that don't have as many stethoscopes as doctors.
 
+-- Used EXCEPT because it better handles cases where there is no DeptHasEqpt relation.
+-- If we didn't use EXCEPT, then there would have to be a lot of nested queries and
+-- performance would have been worse.
+
+SELECT dept_name from Department
+EXCEPT
 SELECT dept_name FROM Department D
 WHERE
     (SELECT current_stock FROM DeptHasEqpt
