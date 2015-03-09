@@ -2,7 +2,7 @@ DROP TABLE Treats;
 DROP TABLE SufferingFrom;
 DROP TABLE SpecializesIn;
 DROP TABLE DeptHasEqpt;
-DROP TABLE Patient;
+DROP TABLE Patient CASCADE;
 DROP TABLE Admin;
 DROP TABLE Nurse;
 DROP TABLE Doctor;
