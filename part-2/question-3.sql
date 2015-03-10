@@ -20,7 +20,7 @@ INSERT INTO Equipment VALUES
     (1011, 'Scalpel', 'Scalpel Co. Inc.', '29.99', FALSE),
     (1012, 'Buzzsaw', 'Venosta Saw Corp.', '129.99', FALSE),
     (1013, 'Calipers', 'E.T. & Company', '29.99', FALSE),
-    (1014, 'Penicillin', 'Big Pharma Ic.', '9.99', TRUE),
+    (1014, 'Penicillin', 'Big Pharma Inc.', '9.99', TRUE),
     (1015, 'Advil', 'Big Pharma Inc.', '8.99', TRUE),
     (1016, 'Placebo', 'Big Pharma Inc.', '0.99', TRUE),
     (1017, 'Stethoscope', 'Stethoscopes Inc.', '39.99', FALSE),

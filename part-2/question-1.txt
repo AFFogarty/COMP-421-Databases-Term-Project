@@ -1,3 +1,9 @@
+Lillio Mok 260456786
+Andrew Fogarty 260535895
+Zheng (Mason) Sun 260464047
+
+Question 1: Schema from Project Phase 1
+
 Entities:
     Illness(ill_name, contagious, average_treatment_cost)
     Equipment(eqpt_name, cost, consumable)
