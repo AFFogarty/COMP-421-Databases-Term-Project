@@ -1,5 +1,6 @@
 import util.CommandPrompt;
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
@@ -19,7 +20,9 @@ public class Main {
         Database db;
         try {
             db = new Database();
-            db.executeQuery("SELECT * FROM PRODUCTS");
+            ResultSet resultSet = db.executeQuery("SELECT * FROM PRODUCTS");
+            db.printResultSet(resultSet);
+            db.disconnect();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
