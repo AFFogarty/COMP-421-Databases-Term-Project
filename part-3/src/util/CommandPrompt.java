@@ -16,7 +16,7 @@ public class CommandPrompt {
      */
     public static String getString(String name) throws IOException {
         // Prompt the user
-        System.out.print("Please enter" + name + ": ");
+        System.out.print("Please enter " + name + ": ");
         // Open the reader
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         // Return the value
