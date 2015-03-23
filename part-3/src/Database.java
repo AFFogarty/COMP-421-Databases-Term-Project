@@ -99,4 +99,30 @@ public class Database {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Print out a result set.
+     *
+     * @param resultSet
+     * @throws SQLException
+     */
+    public void printResultSet(ResultSet resultSet) throws SQLException {
+        ResultSetMetaData metaData = resultSet.getMetaData();
+        int numColumns = metaData.getColumnCount();
+        System.out.println("Printing result set:");
+        // Iterate through the result set
+        int counter = 1;
+        while (resultSet.next()) {
+            System.out.print(counter + ". [");
+            for (int i = 1; i <= numColumns; i++) {
+                if (i > 1) {
+                    // Print the comma to separate the values
+                    System.out.print(",  ");
+                }
+                System.out.print(metaData.getColumnName(i) + ": " + resultSet.getString(i));
+            }
+            System.out.println("]");
+            counter++;
+        }
+    }
 }
