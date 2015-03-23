@@ -22,4 +22,29 @@ public class CommandPrompt {
         // Return the value
         return br.readLine();
     }
+
+    /**
+     * Present the user with a list of options and get their choice.
+     *
+     * @param options
+     * @return
+     * @throws IOException
+     */
+    public static int getMenuSelection(String[] options) throws IOException {
+        System.out.println("\n\nPlease select one of the following actions:");
+
+        // Print the options
+        for (int i = 0; i < options.length; i++) {
+            System.out.println((i + 1) + ". " + options[i]);
+        }
+        // Open reader
+        BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
+        int output = -1;
+        while (output < 1 || output > options.length) {
+            System.out.println("Please enter a number between 1 and " + options.length + ".");
+            output = Integer.parseInt(br.readLine());
+        }
+        // Return the number selection
+        return output;
+    }
 }
