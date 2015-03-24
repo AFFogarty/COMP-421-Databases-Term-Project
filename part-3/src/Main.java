@@ -2,6 +2,7 @@ import helpers.Ascii;
 import helpers.RegEx;
 import util.CommandPrompt;
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
@@ -28,6 +29,8 @@ public class Main {
                     try {
                         firstQuery(db);
                     } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (SQLException e) {
                         e.printStackTrace();
                     }
                     break;
@@ -84,23 +87,30 @@ public class Main {
      *
      * @param db
      */
-    public static void firstQuery(Database db) throws IOException {
+    public static void firstQuery(Database db) throws IOException, SQLException {
         System.out.println("Creating Staff record...");
+        // TODO: Auto create a staff id.
         int staff_id = 0;
         String first_name = CommandPrompt.getString("first name");
         String last_name = CommandPrompt.getString("last name");
 
         // TODO: Query the DB for the list of depts, then grab from the list
-        String dept_name = "";
+        ResultSet departmentResults = db.executeQuery("SELECT dept_name FROM Department");
+        String[] deptNames = {"dept1", "dept2", "dept3", "dept4"};
+        String dept_name = CommandPrompt.getSelectionFromStringArray("department", deptNames);
 
         String wages = CommandPrompt.getMoneyString("wages");
         String salary = CommandPrompt.getMoneyString("salary");
         String shift_to = CommandPrompt.getTimeString("shift to time");
         String shift_from = CommandPrompt.getTimeString("shift from time");
-        //float over_time = 0.0f;
+        String over_time = "0.0";
         String contract_from = CommandPrompt.getDateString("contract from");
         String contract_until = CommandPrompt.getDateString("contract until");
         String contact = CommandPrompt.getString("contact information");
+
+        // Build the staff query from all the values
+        String insertStaffQuery = "INSERT INTO Staff VALUES ("+ staff_id + ", " + dept_name + ", " + wages + ", " + salary + ", " + shift_to + ", " + shift_from + ", " + over_time + ", " + contract_from + ", " + contract_until + ", " + contact + ", " + first_name + ", " + last_name  +");";
+        // TODO: Execute the query
 
         System.out.println("Record created!");
     }
