@@ -1,4 +1,5 @@
 import helpers.Ascii;
+import helpers.RegEx;
 import util.CommandPrompt;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -12,7 +13,7 @@ public class Main {
 
         // Menu options
         int menuSelection;
-        String[] test = {"First", "Second", "Third", "Fourth", "Fifth", "Quit"};
+        String[] test = {"Add staff to database", "Second", "Third", "Fourth", "Fifth", "Quit"};
         boolean running = true;
         while (running) {
             menuSelection = -1;
@@ -24,6 +25,11 @@ public class Main {
 
             switch (menuSelection) {
                 case 1:
+                    try {
+                        firstQuery(db);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 case 2:
                     break;
@@ -61,17 +67,42 @@ public class Main {
             return new Database();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            System.exit(-1);
         } catch (IOException e) {
             e.printStackTrace();
+            System.exit(-1);
         } catch (SQLException e) {
             e.printStackTrace();
+            System.exit(-1);
         }
         // If this happens, then something has gone wrong.
         return null;
     }
 
-    public static void firstQuery(Database db) {
-        // TODO
+    /**
+     * Add a Staff to the Database
+     *
+     * @param db
+     */
+    public static void firstQuery(Database db) throws IOException {
+        System.out.println("Creating Staff record...");
+        int staff_id = 0;
+        String first_name = CommandPrompt.getString("first name");
+        String last_name = CommandPrompt.getString("last name");
+
+        // TODO: Query the DB for the list of depts, then grab from the list
+        String dept_name = "";
+
+        String wages = CommandPrompt.getMoneyString("wages");
+        String salary = CommandPrompt.getMoneyString("salary");
+        String shift_to = CommandPrompt.getTimeString("shift to time");
+        String shift_from = CommandPrompt.getTimeString("shift from time");
+        //float over_time = 0.0f;
+        String contract_from = CommandPrompt.getDateString("contract from");
+        String contract_until = CommandPrompt.getDateString("contract until");
+        String contact = CommandPrompt.getString("contact information");
+
+        System.out.println("Record created!");
     }
 
     public static void secondQuery(Database db) {
