@@ -44,6 +44,7 @@ public class CommandPrompt {
             System.out.println("Please enter a number between 1 and " + options.length + ".");
             output = Integer.parseInt(br.readLine());
         }
+        System.out.println("Option " + output + ", " + options[output - 1] + ", selected.");
         // Return the number selection
         return output;
     }
