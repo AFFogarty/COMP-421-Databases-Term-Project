@@ -33,7 +33,7 @@ public class CommandPrompt {
      */
     public static String getMoneyString(String name) throws IOException {
         // Prompt the user
-        System.out.print("Please enter " + name + ": ");
+        System.out.println("Please enter " + name + ": ");
         // Open the reader
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String output = "";
@@ -54,7 +54,7 @@ public class CommandPrompt {
      */
     public static String getDateString(String name) throws IOException {
         // Prompt the user
-        System.out.print("Please enter " + name + ": ");
+        System.out.println("Please enter " + name + ": ");
         // Open the reader
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String output = "";
@@ -75,7 +75,7 @@ public class CommandPrompt {
      */
     public static String getTimeString(String name) throws IOException {
         // Prompt the user
-        System.out.print("Please enter " + name + ": ");
+        System.out.println("Please enter " + name + ": ");
         // Open the reader
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String output = "";
