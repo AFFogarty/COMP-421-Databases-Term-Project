@@ -1,5 +1,7 @@
 package util;
 
+import helpers.RegEx;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -21,6 +23,68 @@ public class CommandPrompt {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         // Return the value
         return br.readLine();
+    }
+
+    /**
+     * Prompt the user to enter a money value.
+     * @param name
+     * @return
+     * @throws IOException
+     */
+    public static String getMoneyString(String name) throws IOException {
+        // Prompt the user
+        System.out.print("Please enter " + name + ": ");
+        // Open the reader
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String output = "";
+        while (!RegEx.matchesMoney(output)) {
+            System.out.println("Please enter a currency value in form '00.00' with no dollar sign.");
+            output = br.readLine();
+        }
+        // Return the value
+        return output;
+    }
+
+    /**
+     * Prompt the user to enter a Date.
+     *
+     * @param name
+     * @return
+     * @throws IOException
+     */
+    public static String getDateString(String name) throws IOException {
+        // Prompt the user
+        System.out.print("Please enter " + name + ": ");
+        // Open the reader
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String output = "";
+        while (!RegEx.matchesDate(output)) {
+            System.out.println("Please enter a date in the form 'YYYY-MM-DD'.");
+            output = br.readLine();
+        }
+        // Return the value
+        return output;
+    }
+
+    /**
+     * Prompt the user for a time string.
+     *
+     * @param name
+     * @return
+     * @throws IOException
+     */
+    public static String getTimeString(String name) throws IOException {
+        // Prompt the user
+        System.out.print("Please enter " + name + ": ");
+        // Open the reader
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String output = "";
+        while (!RegEx.matchesTime(output)) {
+            System.out.println("Please enter a time in form '23:59:59'.");
+            output = br.readLine();
+        }
+        // Return the value
+        return output;
     }
 
     /**
