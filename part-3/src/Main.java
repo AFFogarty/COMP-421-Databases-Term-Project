@@ -1,4 +1,4 @@
-import art.Ascii;
+import helpers.Ascii;
 import util.CommandPrompt;
 import java.io.IOException;
 import java.sql.SQLException;
