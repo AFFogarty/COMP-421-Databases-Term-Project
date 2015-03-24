@@ -95,7 +95,7 @@ public class CommandPrompt {
      * @throws IOException
      */
     public static int getMenuSelection(String[] options) throws IOException {
-        System.out.println("\n\nPlease select one of the following actions:");
+        System.out.println("\n\nPlease select one of the following:");
 
         // Print the options
         for (int i = 0; i < options.length; i++) {
@@ -111,5 +111,18 @@ public class CommandPrompt {
         System.out.println("Option " + output + ", " + options[output - 1] + ", selected.");
         // Return the number selection
         return output;
+    }
+
+    /**
+     * Select from a list of Strings.
+     *
+     * @param name
+     * @param options
+     * @return
+     * @throws IOException
+     */
+    public static String getSelectionFromStringArray(String name, String[] options) throws IOException {
+        System.out.println("Selecting " + name + "...");
+        return options[getMenuSelection(options) - 1];
     }
 }
