@@ -29,7 +29,6 @@ public class Database {
 
     public ResultSet executeQuery(String query) throws SQLException {
         // The statement runs the query
-        System.out.println("Creating statement...");
         Statement statement = this.connection.createStatement();
         // Run the query on the statement
         ResultSet resultSet = statement.executeQuery(query);
