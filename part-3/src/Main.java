@@ -110,7 +110,7 @@ public class Main {
         String salary = CommandPrompt.getMoneyString("salary");
         String shift_to = CommandPrompt.getTimeString("shift to time");
         String shift_from = CommandPrompt.getTimeString("shift from time");
-        String over_time = "0.0";
+        String over_time = CommandPrompt.getNumberString("number of overtime hours");
         String contract_from = CommandPrompt.getDateString("contract from");
         String contract_until = CommandPrompt.getDateString("contract until");
         String contact = CommandPrompt.getString("contact information");
@@ -125,11 +125,9 @@ public class Main {
         String insertStaffQuery = "INSERT INTO Staff VALUES ("+ staff_id + ", '" + dept_name + "', '" + wages + "', '" + salary + "', '" + shift_to + "', '" + shift_from + "', '" + over_time + "', '" + contract_from + "', '" + contract_until + "', '" + contact + "', '" + first_name + "', '" + last_name  +"');";
         System.out.println(insertStaffQuery);
         // Execute the query
-        ResultSet creationResults = db.executeQuery(insertStaffQuery);
-        // Print the output
-        db.printResultSet(creationResults);
+        db.executeInsertUpdateDestroy(insertStaffQuery);
 
-        System.out.println("Record created!");
+        System.out.println("SUCCESS: Staff " + last_name + ", " + first_name + " created with id: " + staff_id + ".\n\n");
     }
 
     public static void secondQuery(Database db) throws SQLException, IOException {
@@ -143,7 +141,6 @@ public class Main {
         ResultSet equipment = db.executeQuery("SELECT * FROM equipment");
         String[] equipmentNames = (String[]) equipment.getArray("eqpt_name").getArray();
         int equipmentIndex = CommandPrompt.getMenuSelection(equipmentNames);
-//        equipment.getArray()
 
         // How many per doctor?
         int numberPerDoctor = CommandPrompt.getNaturalNumber("number of equipment per doctor");
