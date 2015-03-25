@@ -10,7 +10,6 @@ public class Database {
     private static String userName;
     private static String passWord;
     private Connection connection = null;
-    private HashMap<ResultSet, Statement> statementHashMap;
 
     public Database() throws ClassNotFoundException, IOException, SQLException {
         // If we don't register the driver then things get messed up
@@ -18,9 +17,6 @@ public class Database {
 
         System.out.println("Establishing DB connection...");
         this.connection = DriverManager.getConnection(DatabaseConfig.url, Auth.userName, Auth.passWord);
-
-        // Create hash sets and maps
-        this.statementHashMap = new HashMap<ResultSet, Statement>();
     }
 
     public ResultSet executeQuery(String query) throws SQLException {
@@ -28,8 +24,6 @@ public class Database {
         Statement statement = this.connection.createStatement();
         // Run the query on the statement
         ResultSet resultSet = statement.executeQuery(query);
-        // Store the statement and result set to be closed later
-        this.statementHashMap.put(resultSet, statement);
         // Return the results
         return resultSet;
     }
@@ -66,11 +60,6 @@ public class Database {
      * @throws SQLException
      */
     public void disconnect() throws SQLException {
-        // Close the statements and hash maps.
-        for (ResultSet current : this.statementHashMap.keySet()) {
-            this.closeResultSet(current);
-        }
-
         if (this.isConnected()) {
             this.connection.close();
             System.out.println("Disconnected from Db.");
@@ -79,15 +68,6 @@ public class Database {
         } else {
             System.out.println("Db already disconnected.");
         }
-    }
-
-    public void closeResultSet(ResultSet resultSet) throws SQLException {
-        // Close the Statement
-        this.statementHashMap.get(resultSet).close();
-        // Remove the statement from the map
-        this.statementHashMap.remove(resultSet);
-        // Close resultSet
-        resultSet.close();
     }
 
     /**
