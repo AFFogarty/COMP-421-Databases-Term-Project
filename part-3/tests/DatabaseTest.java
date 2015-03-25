@@ -16,8 +16,6 @@ public class DatabaseTest {
         db.executeQuery("SELECT * FROM department");
         // Assert connected
         assertTrue(db.isConnected());
-        // Clear the queries
-        db.closeResultSet(resultSet);
         // Disconnect
         db.disconnect();
         // Assert disconnected
