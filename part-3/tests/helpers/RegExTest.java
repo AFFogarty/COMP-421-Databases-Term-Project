@@ -39,11 +39,11 @@ public class RegExTest {
 
     @Test
     public void testMatchesInt() throws Exception {
-        assertTrue(RegEx.matchesTime("185285851"));
-        assertTrue(RegEx.matchesTime("2828200"));
+        assertTrue(RegEx.matchesNaturalNumber("185285851"));
+        assertTrue(RegEx.matchesNaturalNumber("2828200"));
 
-        assertFalse(RegEx.matchesTime("haha9"));
-        assertFalse(RegEx.matchesTime("999.0"));
-        assertFalse(RegEx.matchesTime("34340"));
+        assertFalse(RegEx.matchesNaturalNumber("haha9"));
+        assertFalse(RegEx.matchesNaturalNumber("999.0"));
+        assertFalse(RegEx.matchesNaturalNumber("-34340"));
     }
 }
