@@ -1,3 +1,4 @@
+import config.Auth;
 import config.DatabaseConfig;
 import util.CommandPrompt;
 
@@ -18,15 +19,11 @@ public class Database {
     HashMap<ResultSet, Statement> statementHashmap;
 
     public Database() throws ClassNotFoundException, IOException, SQLException {
-        //  Ask user for the database username and password
-        this.userName = CommandPrompt.getString("user name");
-        this.passWord = CommandPrompt.getString("password");
-
         // If we don't register the driver then things get messed up
         Class.forName("org.postgresql.Driver");
 
         System.out.println("Establishing DB connection...");
-        this.connection = DriverManager.getConnection(DatabaseConfig.url, this.userName, this.passWord);
+        this.connection = DriverManager.getConnection(DatabaseConfig.url, Auth.userName, Auth.passWord);
 
         // Create hash sets and maps
         this.statementHashmap = new HashMap<ResultSet, Statement>();
