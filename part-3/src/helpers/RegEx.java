@@ -6,11 +6,11 @@ import java.util.regex.Pattern;
 
 public class RegEx {
     public static boolean matchesMoney(String input) {
-        return stringMatchesRegex("\\d{1,13}.\\d{2}", input)
+        return stringMatchesRegex("\\d{1,13}.\\d{2}", input);
     }
 
     public static boolean matchesDate(String input) {
-        return stringMatchesRegex("\\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])", input)
+        return stringMatchesRegex("\\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])", input);
     }
 
     public static boolean matchesTime(String input) {
