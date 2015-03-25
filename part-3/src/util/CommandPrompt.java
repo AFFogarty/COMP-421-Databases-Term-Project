@@ -25,6 +25,20 @@ public class CommandPrompt {
         return br.readLine();
     }
 
+    public static int getNaturalNumber(String name) throws IOException {
+        // Prompt the user
+        System.out.println("Please enter " + name + ": ");
+        // Open the reader
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String output = "null";
+        while (!RegEx.matchesNaturalNumber(output)) {
+            System.out.println("Please enter a natural number (integer >= 0).");
+            output = br.readLine();
+        }
+        // Return the value
+        return Integer.parseInt(output);
+    }
+
     /**
      * Prompt the user to enter a money value.
      * @param name
