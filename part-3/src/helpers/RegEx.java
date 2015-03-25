@@ -21,6 +21,9 @@ public class RegEx {
         return stringMatchesRegex("[0-9]*", input);
     }
 
+    public static boolean matchesNumber(String input) {
+        return stringMatchesRegex("\\d*\\.\\d{1,}|\\d{1,}", input);
+    }
 
     /**
      *  Check if a string matches a regex.
