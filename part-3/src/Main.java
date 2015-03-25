@@ -1,4 +1,5 @@
 import helpers.Ascii;
+import helpers.QueryProcessing;
 import helpers.RegEx;
 import util.CommandPrompt;
 import java.io.IOException;
@@ -14,7 +15,14 @@ public class Main {
 
         // Menu options
         int menuSelection;
-        String[] test = {"Add staff to database", "Second", "Third", "Fourth", "Fifth", "Quit"};
+        String[] test = {
+                "Add staff to database",
+                "Order equipment for doctors",
+                "Third",
+                "Fourth",
+                "Fifth",
+                "Quit"
+        };
         boolean running = true;
         while (running) {
             menuSelection = -1;
@@ -89,15 +97,14 @@ public class Main {
      */
     public static void firstQuery(Database db) throws IOException, SQLException {
         System.out.println("Creating Staff record...");
-        // TODO: Auto create a staff id.
-        int staff_id = 0;
+
         String first_name = CommandPrompt.getString("first name");
         String last_name = CommandPrompt.getString("last name");
 
-        // TODO: Query the DB for the list of depts, then grab from the list
+        // Query the DB for the list of depts, then grab from the list
         ResultSet departmentResults = db.executeQuery("SELECT dept_name FROM Department");
-        String[] deptNames = {"dept1", "dept2", "dept3", "dept4"};
-        String dept_name = CommandPrompt.getSelectionFromStringArray("department", deptNames);
+        String[] departmentNames = QueryProcessing.getResultSetColumnArray(departmentResults, "dept_name");
+        String dept_name = CommandPrompt.getSelectionFromStringArray("department", departmentNames);
 
         String wages = CommandPrompt.getMoneyString("wages");
         String salary = CommandPrompt.getMoneyString("salary");
@@ -108,9 +115,19 @@ public class Main {
         String contract_until = CommandPrompt.getDateString("contract until");
         String contact = CommandPrompt.getString("contact information");
 
+        // Auto create a staff id.
+        ResultSet staffIdResultSet = db.executeQuery("SELECT MAX(staff_id) FROM Staff");
+        // Advance to the first
+        staffIdResultSet.next();
+        int staff_id = staffIdResultSet.getInt("max") + 1;
+
         // Build the staff query from all the values
-        String insertStaffQuery = "INSERT INTO Staff VALUES ("+ staff_id + ", " + dept_name + ", " + wages + ", " + salary + ", " + shift_to + ", " + shift_from + ", " + over_time + ", " + contract_from + ", " + contract_until + ", " + contact + ", " + first_name + ", " + last_name  +");";
-        // TODO: Execute the query
+        String insertStaffQuery = "INSERT INTO Staff VALUES ("+ staff_id + ", '" + dept_name + "', '" + wages + "', '" + salary + "', '" + shift_to + "', '" + shift_from + "', '" + over_time + "', '" + contract_from + "', '" + contract_until + "', '" + contact + "', '" + first_name + "', '" + last_name  +"');";
+        System.out.println(insertStaffQuery);
+        // Execute the query
+        ResultSet creationResults = db.executeQuery(insertStaffQuery);
+        // Print the output
+        db.printResultSet(creationResults);
 
         System.out.println("Record created!");
     }
