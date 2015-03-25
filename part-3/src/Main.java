@@ -1,6 +1,5 @@
 import helpers.Ascii;
 import helpers.QueryProcessing;
-import helpers.RegEx;
 import util.CommandPrompt;
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -127,7 +126,48 @@ public class Main {
         // Execute the query
         db.executeInsertUpdateDestroy(insertStaffQuery);
 
-        System.out.println("SUCCESS: Staff " + last_name + ", " + first_name + " created with id: " + staff_id + ".\n\n");
+        System.out.println("SUCCESS: Staff " + last_name + ", " + first_name + " created with id: " + staff_id + " created.\n\n");
+
+        System.out.println("Does " + first_name + " " + last_name + " have a special job?\n");
+        String[] jobs = {"Doctor", "Nurse", "Admin", "No"};
+        int jobSelection = CommandPrompt.getMenuSelection(jobs);
+
+        switch(jobSelection) {
+            case 1:
+                // Handle doctor case
+                System.out.println("Doctor selected.");
+                String rank = CommandPrompt.getString("rank");
+                String board_certification = CommandPrompt.getString("board certification");
+                // Query the db to save the doctor
+                String insertDoctorQuery = "INSERT INTO Doctor VALUES ('" + staff_id + "', '" + rank + "', '" + board_certification + "')";
+                db.executeInsertUpdateDestroy(insertDoctorQuery);
+                System.out.println(first_name + " " + last_name + " is now a doctor.");
+                break;
+            case 2:
+                // Handle nurse case
+                System.out.println("Nurse selected.");
+                String certified_skills = CommandPrompt.getString("certified skills");
+                // Query the db to save the doctor
+                String insertNurseQuery = "INSERT INTO Nurse VALUES ('" + staff_id + "', '" + certified_skills + "')";
+                db.executeInsertUpdateDestroy(insertNurseQuery);
+                System.out.println(first_name + " " + last_name + " is now a nurse.");
+                break;
+            case 3:
+                // Handle admin case
+                System.out.println("Admin selected.");
+                String admin_responsibilities = CommandPrompt.getString("admin responsibilities");
+                // Query the db to save the doctor
+                String insertAdminQuery = "INSERT INTO Admin VALUES ('" + staff_id + "', '" + admin_responsibilities + "')";
+                db.executeInsertUpdateDestroy(insertAdminQuery);
+                System.out.println(first_name + " " + last_name + " is now an admin.");
+                break;
+            default:
+                System.out.println("No special job selected.");
+                break;
+        }
+
+        System.out.println("\n Staff insertion procedure complete.  Returning to main menu...");
+        System.out.println(Ascii.singleSeparator);
     }
 
     public static void stockDoctorEquipmentProcedure(Database db) throws SQLException, IOException {
