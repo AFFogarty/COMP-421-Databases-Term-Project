@@ -1,20 +1,16 @@
 import config.Auth;
 import config.DatabaseConfig;
-import util.CommandPrompt;
 
-import javax.xml.transform.Result;
 import java.io.IOException;
 import java.sql.*;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
 
 public class Database {
 
     private static String userName;
     private static String passWord;
     private Connection connection = null;
-    private HashMap<ResultSet, Statement> statementHashmap;
+    private HashMap<ResultSet, Statement> statementHashMap;
 
     public Database() throws ClassNotFoundException, IOException, SQLException {
         // If we don't register the driver then things get messed up
@@ -24,7 +20,7 @@ public class Database {
         this.connection = DriverManager.getConnection(DatabaseConfig.url, Auth.userName, Auth.passWord);
 
         // Create hash sets and maps
-        this.statementHashmap = new HashMap<ResultSet, Statement>();
+        this.statementHashMap = new HashMap<ResultSet, Statement>();
     }
 
     public ResultSet executeQuery(String query) throws SQLException {
@@ -33,7 +29,7 @@ public class Database {
         // Run the query on the statement
         ResultSet resultSet = statement.executeQuery(query);
         // Store the statement and result set to be closed later
-        this.statementHashmap.put(resultSet, statement);
+        this.statementHashMap.put(resultSet, statement);
         // Return the results
         return resultSet;
     }
@@ -71,7 +67,7 @@ public class Database {
      */
     public void disconnect() throws SQLException {
         // Close the statements and hash maps.
-        for (ResultSet current : this.statementHashmap.keySet()) {
+        for (ResultSet current : this.statementHashMap.keySet()) {
             this.closeResultSet(current);
         }
 
@@ -87,9 +83,9 @@ public class Database {
 
     public void closeResultSet(ResultSet resultSet) throws SQLException {
         // Close the Statement
-        this.statementHashmap.get(resultSet).close();
+        this.statementHashMap.get(resultSet).close();
         // Remove the statement from the map
-        this.statementHashmap.remove(resultSet);
+        this.statementHashMap.remove(resultSet);
         // Close resultSet
         resultSet.close();
     }
