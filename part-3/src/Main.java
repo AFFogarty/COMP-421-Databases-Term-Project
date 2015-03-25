@@ -115,8 +115,35 @@ public class Main {
         System.out.println("Record created!");
     }
 
-    public static void secondQuery(Database db) {
-        // TODO
+    public static void secondQuery(Database db) throws SQLException, IOException {
+        // Get departments from db
+        ResultSet departments = db.executeQuery("SELECT dept_name FROM department");
+        String[] departmentNames = (String[]) departments.getArray("dept_name").getArray();
+        // Ask the user what department they want
+        String department = CommandPrompt.getSelectionFromStringArray("department", departmentNames);
+
+        // Get the equipment types
+        ResultSet equipment = db.executeQuery("SELECT * FROM equipment");
+        String[] equipmentNames = (String[]) equipment.getArray("eqpt_name").getArray();
+        int equipmentIndex = CommandPrompt.getMenuSelection(equipmentNames);
+//        equipment.getArray()
+
+        // How many per doctor?
+        int numberPerDoctor = CommandPrompt.getNaturalNumber("number of equipment per doctor");
+
+        // TODO: Calculate numberPerDoctor * numberOfDoctors
+        int numberOfDoctors = 1;
+        int totalNumber = numberPerDoctor * numberOfDoctors;
+
+        boolean exists = false;
+
+        // Check if order already exists.  If it exists, update it.  If it doesn't, then create a new one.
+        if (exists) {
+            // Update
+        } else {
+            // Insert
+        }
+//        db.executeQuery("UPDATE");
     }
 
     public static void thirdQuery(Database db) {
