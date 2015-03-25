@@ -6,26 +6,33 @@ import java.util.regex.Pattern;
 
 public class RegEx {
     public static boolean matchesMoney(String input) {
-        Pattern p = Pattern.compile("\\d{1,13}.\\d{2}");
-        Matcher m = p.matcher(input);
-        return m.matches();
+        return stringMatchesRegex("\\d{1,13}.\\d{2}", input)
     }
 
     public static boolean matchesDate(String input) {
-        Pattern p = Pattern.compile("\\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])");
-        Matcher m = p.matcher(input);
-        return m.matches();
+        return stringMatchesRegex("\\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])", input)
     }
 
     public static boolean matchesTime(String input) {
-        Pattern p = Pattern.compile("([0-1][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]");
+        return stringMatchesRegex("([0-1][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]", input);
+    }
+
+    public static boolean matchesNaturalNumber(String input) {
+        return stringMatchesRegex("[0-9]*", input);
+    }
+
+
+    /**
+     *  Check if a string matches a regex.
+     *
+     * @param regex Regular expression
+     * @param input String to be matched
+     * @return true if input matches regex
+     */
+    private static boolean stringMatchesRegex(String regex, String input) {
+        Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(input);
         return m.matches();
     }
 
-    public static boolean matchesNaturalNumber(String input) {
-        Pattern p = Pattern.compile("[0-9]*");
-        Matcher m = p.matcher(input);
-        return m.matches();
-    }
 }
