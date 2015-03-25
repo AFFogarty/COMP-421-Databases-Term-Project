@@ -101,6 +101,20 @@ public class CommandPrompt {
         return output;
     }
 
+    public static String getNumberString(String name) throws IOException {
+        // Prompt the user
+        System.out.println("Please enter " + name + ": ");
+        // Open the reader
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String output = "";
+        while (!RegEx.matchesNumber(output)) {
+            System.out.println("Please enter a number.");
+            output = br.readLine();
+        }
+        // Return the value
+        return output;
+    }
+
     /**
      * Present the user with a list of options and get their choice.
      *
