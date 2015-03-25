@@ -35,7 +35,7 @@ public class Main {
             switch (menuSelection) {
                 case 1:
                     try {
-                        firstQuery(db);
+                        insertStaffProcedure(db);
                     } catch (IOException e) {
                         e.printStackTrace();
                     } catch (SQLException e) {
@@ -95,7 +95,7 @@ public class Main {
      *
      * @param db
      */
-    public static void firstQuery(Database db) throws IOException, SQLException {
+    public static void insertStaffProcedure(Database db) throws IOException, SQLException {
         System.out.println("Creating Staff record...");
 
         String first_name = CommandPrompt.getString("first name");
@@ -130,7 +130,7 @@ public class Main {
         System.out.println("SUCCESS: Staff " + last_name + ", " + first_name + " created with id: " + staff_id + ".\n\n");
     }
 
-    public static void secondQuery(Database db) throws SQLException, IOException {
+    public static void stockDoctorEquipmentProcedure(Database db) throws SQLException, IOException {
         // Get departments from db
         ResultSet departments = db.executeQuery("SELECT dept_name FROM department");
         String[] departmentNames = (String[]) departments.getArray("dept_name").getArray();
