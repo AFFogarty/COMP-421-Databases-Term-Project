@@ -39,6 +39,23 @@ public class Database {
     }
 
     /**
+     * Insert, Update, or Destroy query handler.
+     *
+     * @param query the query to run
+     * @return number of rows affected
+     * @throws SQLException
+     */
+    public int executeInsertUpdateDestroy(String query) throws SQLException {
+        // The statement runs the query
+        Statement statement = this.connection.createStatement();
+        // Run the query on the statement
+        int output = statement.executeUpdate(query);
+        // Close the statement
+        statement.close();
+        return output;
+    }
+
+    /**
      * Check if the database is still connected.
      *
      * @return true iff connected
