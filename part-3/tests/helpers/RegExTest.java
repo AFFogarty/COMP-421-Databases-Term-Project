@@ -36,4 +36,14 @@ public class RegExTest {
         assertFalse(RegEx.matchesTime("26:00:00"));
         assertFalse(RegEx.matchesTime("23:00:1"));
     }
+
+    @Test
+    public void testMatchesInt() throws Exception {
+        assertTrue(RegEx.matchesTime("185285851"));
+        assertTrue(RegEx.matchesTime("2828200"));
+
+        assertFalse(RegEx.matchesTime("haha9"));
+        assertFalse(RegEx.matchesTime("999.0"));
+        assertFalse(RegEx.matchesTime("34340"));
+    }
 }
