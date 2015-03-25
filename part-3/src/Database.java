@@ -13,10 +13,8 @@ public class Database {
 
     private static String userName;
     private static String passWord;
-
-    Connection connection = null;
-
-    HashMap<ResultSet, Statement> statementHashmap;
+    private Connection connection = null;
+    private HashMap<ResultSet, Statement> statementHashmap;
 
     public Database() throws ClassNotFoundException, IOException, SQLException {
         // If we don't register the driver then things get messed up
