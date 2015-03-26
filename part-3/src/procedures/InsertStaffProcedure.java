@@ -23,8 +23,7 @@ public class InsertStaffProcedure {
         String last_name = CommandPrompt.getString("last name");
 
         // Query the DB for the list of depts, then grab from the list
-        ResultSet departmentResults = db.executeQuery("SELECT dept_name FROM Department");
-        String[] departmentNames = QueryProcessing.getResultSetColumnArray(departmentResults, "dept_name");
+        String[] departmentNames = getDepartmentNames(db);
         String dept_name = CommandPrompt.getSelectionFromStringArray("department", departmentNames);
 
         String wages = CommandPrompt.getMoneyString("wages");
@@ -87,5 +86,19 @@ public class InsertStaffProcedure {
                 System.out.println("No special job selected.");
                 break;
         }
+    }
+
+    /**
+     * Get the list of the names of departments.
+     *
+     * @param db the database
+     * @return
+     * @throws SQLException
+     */
+    public static String[] getDepartmentNames(Database db) throws SQLException {
+        ResultSet departmentResults = db.executeQuery("SELECT dept_name FROM Department");
+        String[] departmentNames = QueryProcessing.getResultSetColumnArray(departmentResults, "dept_name");
+        departmentResults.close();
+        return departmentNames;
     }
 }
