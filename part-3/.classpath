@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="tests"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/postgresql-9.4-1201.jdbc4"/>
+	<classpathentry kind="var" path="APPLICATION_HOME_DIR/lib/junit-4.11.jar"/>
+	<classpathentry kind="output" path="out/production/part-3"/>
+</classpath>

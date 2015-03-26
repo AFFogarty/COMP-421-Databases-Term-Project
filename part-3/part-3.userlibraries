@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="postgresql-9.4-1201.jdbc4">
+    <archive path="C:/Users/Andrew Fogarty/Repositories/COMP-421-Databases-Term-Project/part-3/lib/postgresql-9.4-1201.jdbc4.jar" />
+  </library>
+  <library name="Remote Python 2.7.3 (ssh://vagrant@127.0.0.1:2222/vagrant/timetracker/app_env/bin/python) interpreter library">
+    <archive path="C:/Users/Andrew Fogarty/.IntelliJIdea14/config/plugins/python/helpers/python-skeletons" />
+    <archive path="C:/Users/Andrew Fogarty/.IntelliJIdea14/system/python_stubs/7536983" />
+  </library>
+</eclipse-userlibraries>
+
