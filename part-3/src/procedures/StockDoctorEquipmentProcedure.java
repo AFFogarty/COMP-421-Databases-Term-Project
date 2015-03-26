@@ -60,7 +60,8 @@ public class StockDoctorEquipmentProcedure {
         }
 
         // Check if order already exists.  If it exists, update it.  If it doesn't, then create a new one.
-        ResultSet existingEqupmentStock = db.executeQuery("SELECT * FROM DeptHasEqpt WHERE dept_name = '" + dept_name + "' AND eqpt_id = " + eqpt_id);
+        ResultSet existingEqupmentStock = db.executeQuery("SELECT * FROM DeptHasEqpt WHERE dept_name = '" + dept_name
+                + "' AND eqpt_id = " + eqpt_id);
         if (existingEqupmentStock.next()) {
             // It exists, so we will update if necessary
             int currentStock = existingEqupmentStock.getInt("current_stock");
@@ -69,10 +70,13 @@ public class StockDoctorEquipmentProcedure {
                 numberToBuy = currentStock;
                 System.out.println(dept_name + " already has " + currentStock + " in stock, so we will only update number needed.");
                 // Create the update query
-                updateQuery = "UPDATE DeptHasEqpt SET amount_needed=" + numberToBuy + " WHERE dept_name = '" + dept_name + "' AND eqpt_id = " + eqpt_id;
+                updateQuery = "UPDATE DeptHasEqpt SET amount_needed=" + numberToBuy + " WHERE dept_name = '"
+                        + dept_name + "' AND eqpt_id = " + eqpt_id;
             } else {
-                System.out.println(dept_name + " only has " + currentStock + " of " + eqpt_name + "in stock, so we will increase stock to " + numberToBuy + ".");
-                updateQuery = "UPDATE DeptHasEqpt SET amount_needed=" + numberToBuy + ", current_stock=" + numberToBuy + " WHERE dept_name = '" + dept_name + "' AND eqpt_id = " + eqpt_id;
+                System.out.println(dept_name + " only has " + currentStock + " of " + eqpt_name
+                        + "in stock, so we will increase stock to " + numberToBuy + ".");
+                updateQuery = "UPDATE DeptHasEqpt SET amount_needed=" + numberToBuy + ", current_stock="
+                        + numberToBuy + " WHERE dept_name = '" + dept_name + "' AND eqpt_id = " + eqpt_id;
             }
             System.out.println(updateQuery);
             db.executeInsertUpdateDestroy(updateQuery);
@@ -80,7 +84,8 @@ public class StockDoctorEquipmentProcedure {
         } else {
             // It doesn't exist, so insert
             System.out.println(dept_name + " does not have any " + eqpt_name + " so we will order " + numberToBuy + ".");
-            String insertQuery = "INSERT INTO DeptHasEqpt VALUES ('" + dept_name + "', " + eqpt_id + ", " + numberToBuy + ", " + numberToBuy + ")";
+            String insertQuery = "INSERT INTO DeptHasEqpt VALUES ('" + dept_name + "', " + eqpt_id + ", "
+                    + numberToBuy + ", " + numberToBuy + ")";
             System.out.println(insertQuery);
             db.executeInsertUpdateDestroy(insertQuery);
         }
