@@ -43,7 +43,7 @@ public class StockDoctorEquipmentProcedure {
         String eqpt_name = equipmentNames.get(equipmentIndex);
 
         // How many per doctor?
-        int numberPerDoctor = CommandPrompt.getNaturalNumber("number of equipment per doctor");
+        int numberPerDoctor = CommandPrompt.getNaturalNumber("number of equipment per doctor", true);
 
         // Find out how many doctors in the department
         ResultSet doctorCountSet = db.executeQuery("SELECT count(D.staff_id) FROM Doctor D, Staff S WHERE D.staff_id = S.staff_id AND S.dept_name = '" + dept_name + "'");

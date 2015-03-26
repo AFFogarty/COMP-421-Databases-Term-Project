@@ -25,14 +25,15 @@ public class CommandPrompt {
         return br.readLine();
     }
 
-    public static int getNaturalNumber(String name) throws IOException {
+    public static int getNaturalNumber(String name, boolean showInstructions) throws IOException {
         // Prompt the user
         System.out.println("Please enter " + name + ": ");
         // Open the reader
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String output = "null";
         while (!RegEx.matchesNaturalNumber(output)) {
-            System.out.println("Please enter a natural number (integer >= 0).");
+            if (showInstructions)
+                System.out.println("Please enter a natural number (integer >= 0).");
             output = br.readLine();
         }
         // Return the value
@@ -133,8 +134,7 @@ public class CommandPrompt {
         BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
         int output = -1;
         while (output < 1 || output > options.length) {
-            System.out.println("Please enter a number between 1 and " + options.length + ".");
-            output = Integer.parseInt(br.readLine());
+            output = CommandPrompt.getNaturalNumber("number between 1 and " + options.length, false);
         }
         System.out.println("Option " + output + ", " + options[output - 1] + ", selected.");
         // Return the number selection
