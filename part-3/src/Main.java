@@ -1,4 +1,5 @@
 import helpers.Ascii;
+import procedures.InsertPatientProcedure;
 import procedures.InsertStaffProcedure;
 import procedures.StockDoctorEquipmentProcedure;
 import procedures.ViewDepartmentStaffProcedure;
@@ -21,7 +22,7 @@ public class Main {
                 "Add staff to database",
                 "Order equipment for doctors",
                 "View staff in department",
-                "Fourth",
+                "Register or update patient",
                 "Fifth",
                 "Quit"
         };
@@ -70,6 +71,15 @@ public class Main {
                     System.out.println(Ascii.singleSeparator);
                     break;
                 case 4:
+                    try {
+                        InsertPatientProcedure.execute(db);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("\nRegister patient procedure complete.  Returning to main menu...");
+                    System.out.println(Ascii.singleSeparator);
                     break;
                 case 5:
                     break;
