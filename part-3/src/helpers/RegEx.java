@@ -17,6 +17,14 @@ public class RegEx {
         return stringMatchesRegex("([0-1][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]", input);
     }
 
+    public static boolean matchesFirstName(String input) {
+        return stringMatchesRegex("[A-Z][a-zA-Z]*", input);
+    }
+
+    public static boolean matchesLastName(String input) {
+        return stringMatchesRegex( "[a-zA-z]+([ '-][a-zA-Z]+)*", input);
+    }
+
     public static boolean matchesNaturalNumber(String input) {
         return stringMatchesRegex("[0-9]*", input);
     }
