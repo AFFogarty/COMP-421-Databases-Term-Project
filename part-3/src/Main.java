@@ -20,7 +20,7 @@ public class Main {
         String[] test = {
                 "Add staff to database",
                 "Order equipment for doctors",
-                "Third",
+                "View staff in department",
                 "Fourth",
                 "Fifth",
                 "Quit"
