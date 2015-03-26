@@ -74,15 +74,15 @@ public class AssignIllnessProcedure {
         // Prompt more info
         String ill_since = CommandPrompt.getDateString("the date when the illness began");
         String ill_until = null;
-        String urgency = CommandPrompt.getString("ugency");
+        String urgency = CommandPrompt.getString("urgency");
 
         // Find out about treatment
         String insurance_coverage = CommandPrompt.getMoneyString("insurance coverage");
         String treatment_cost = CommandPrompt.getMoneyString("treatment cost (average $" + average_treatment_cost + " for " + ill_name + ")");
 
         // Build the query
-        String insertQuery = "INSERT INTO SufferingFrom VALUES (patient_id, '" + ill_id + "', '" + ill_since + "', '"
-                + ill_until + "', '" + insurance_coverage + "', '" + treatment_cost + "', '" + urgency + "') ";
+        String insertQuery = "INSERT INTO SufferingFrom VALUES (" + patient_id + ", '" + ill_id + "', '" + ill_since + "', "
+                + ill_until + ", '" + insurance_coverage + "', '" + treatment_cost + "', '" + urgency + "') ";
         System.out.println(insertQuery);
         db.executeInsertUpdateDestroy(insertQuery);
 
