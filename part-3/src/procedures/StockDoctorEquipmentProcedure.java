@@ -57,8 +57,6 @@ public class StockDoctorEquipmentProcedure {
         if (numberToBuy == 0) {
             System.out.println("Don't need to buy any, so terminating procedure.");
             return;
-        } else {
-
         }
 
         // Check if order already exists.  If it exists, update it.  If it doesn't, then create a new one.
