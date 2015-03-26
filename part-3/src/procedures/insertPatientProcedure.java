@@ -28,8 +28,7 @@ public class InsertPatientProcedure {
         } while(!validated);
 
         // Check if the patient already exists
-        ResultSet existing = db.executeQuery("SELECT * FROM Patient WHERE first_name like '"
-                + first_name + "' AND last_name like '" + last_name + "'");
+        ResultSet existing = getPatient(first_name, last_name, db);
         if(existing.next()){
             System.out.println("A patient with that first and last name already exists. Aborting.");
             return;
@@ -51,5 +50,10 @@ public class InsertPatientProcedure {
             int patient_id = successfulPatientSet.getInt("patient_id");
             System.out.println("Patient " + last_name + ", " + first_name + " record created with id: " + patient_id + ".");
         }
+    }
+
+    public static ResultSet getPatient(String first_name, String last_name, Database db) throws SQLException {
+        return db.executeQuery("SELECT * FROM Patient WHERE first_name like '"
+                + first_name + "' AND last_name like '" + last_name + "'");
     }
 }
