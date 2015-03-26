@@ -20,7 +20,8 @@ public class Main {
                 "Order equipment for doctors",
                 "View staff in department",
                 "Register or update patient",
-                "Assign Illness to Patient",
+                "Assign illness to patient",
+                "Assign specialist to treat patient",
                 "Quit"
         };
         boolean running = true;
@@ -87,6 +88,17 @@ public class Main {
                         e.printStackTrace();
                     }
                     System.out.println("\nAssign illness procedure complete.  Returning to main menu...");
+                    System.out.println(Ascii.singleSeparator);
+                    break;
+                case 6:
+                    try {
+                        AssignSpecialistProcedure.execute(db);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("\nAssign specialist procedure complete.  Returning to main menu...");
                     System.out.println(Ascii.singleSeparator);
                     break;
                 default:
