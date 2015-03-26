@@ -36,6 +36,7 @@ public class Main {
             switch (menuSelection) {
                 case 1:
                     try {
+                        // Run the InsertSTaffProcedure
                         InsertStaffProcedure.execute(db);
                     } catch (IOException e) {
                         e.printStackTrace();
