@@ -1,8 +1,5 @@
 import helpers.Ascii;
-import procedures.InsertPatientProcedure;
-import procedures.InsertStaffProcedure;
-import procedures.StockDoctorEquipmentProcedure;
-import procedures.ViewDepartmentStaffProcedure;
+import procedures.*;
 import util.CommandPrompt;
 import util.Database;
 
@@ -23,7 +20,7 @@ public class Main {
                 "Order equipment for doctors",
                 "View staff in department",
                 "Register or update patient",
-                "Fifth",
+                "Assign Illness to Patient",
                 "Quit"
         };
         boolean running = true;
@@ -82,6 +79,15 @@ public class Main {
                     System.out.println(Ascii.singleSeparator);
                     break;
                 case 5:
+                    try {
+                        AssignIllnessProcedure.execute(db);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("\nAssign illness procedure complete.  Returning to main menu...");
+                    System.out.println(Ascii.singleSeparator);
                     break;
                 default:
                     // End the program loop
