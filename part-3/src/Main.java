@@ -1,6 +1,7 @@
 import helpers.Ascii;
 import procedures.InsertStaffProcedure;
 import procedures.StockDoctorEquipmentProcedure;
+import procedures.ViewDepartmentStaffProcedure;
 import util.CommandPrompt;
 import util.Database;
 
@@ -43,7 +44,7 @@ public class Main {
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
-                    System.out.println("\n Staff insertion procedure complete.  Returning to main menu...");
+                    System.out.println("\nStaff insertion procedure complete.  Returning to main menu...");
                     System.out.println(Ascii.singleSeparator);
                     break;
                 case 2:
@@ -54,10 +55,19 @@ public class Main {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    System.out.println("\n Equipment order procedure complete.  Returning to main menu...");
+                    System.out.println("\nEquipment order procedure complete.  Returning to main menu...");
                     System.out.println(Ascii.singleSeparator);
                     break;
                 case 3:
+                    try {
+                        ViewDepartmentStaffProcedure.execute(db);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("\nStaff view procedure complete.  Returning to main menu...");
+                    System.out.println(Ascii.singleSeparator);
                     break;
                 case 4:
                     break;
