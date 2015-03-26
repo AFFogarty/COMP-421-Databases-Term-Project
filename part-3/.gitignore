@@ -13,3 +13,4 @@ hs_err_pid*
 
 # Don't commit the Auth file
 src/config/Auth.java
+src/config/Auth_default.txt
