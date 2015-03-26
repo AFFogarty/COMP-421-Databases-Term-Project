@@ -1,6 +1,8 @@
 import helpers.Ascii;
 import helpers.QueryProcessing;
 import util.CommandPrompt;
+import util.Database;
+
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -102,7 +104,7 @@ public class Main {
     }
 
     /**
-     * Add a Staff to the Database
+     * Add a Staff to the util.Database
      *
      * @param db
      */

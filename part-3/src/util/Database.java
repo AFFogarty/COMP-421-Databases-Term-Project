@@ -1,3 +1,5 @@
+package util;
+
 import config.Auth;
 import config.DatabaseConfig;
 
@@ -55,7 +57,7 @@ public class Database {
     }
 
     /**
-     * Disconnect the Database connection.
+     * Disconnect the util.Database connection.
      *
      * @throws SQLException
      */
