@@ -13,3 +13,6 @@ hs_err_pid*
 
 # Don't commit the Auth file
 src/config/Auth.java
+
+# Stuff from my IntelliJ -- Lillio
+.idea/*
