@@ -9,10 +9,8 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Created by Lillio on 2015-03-25.
- */
-public class insertPatientProcedure {
+
+public class InsertPatientProcedure {
     public static void execute(Database db) throws IOException, SQLException {
         System.out.println("Creating Patient record...");
         boolean validated = false;
