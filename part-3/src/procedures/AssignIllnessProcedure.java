@@ -11,6 +11,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class AssignIllnessProcedure {
+
+    /**
+     * Select a patient and an illness.  Create SufferingFrom relation.
+     *
+     * @param db
+     * @throws IOException
+     * @throws SQLException
+     */
     public static void execute(Database db) throws IOException, SQLException {
         // Grab the patient name
         boolean validated = false;
