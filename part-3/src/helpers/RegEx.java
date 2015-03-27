@@ -26,7 +26,7 @@ public class RegEx {
     }
 
     public static boolean matchesNaturalNumber(String input) {
-        return stringMatchesRegex("[0-9]*", input);
+        return stringMatchesRegex("[0-9]+", input);
     }
 
     public static boolean matchesNumber(String input) {
