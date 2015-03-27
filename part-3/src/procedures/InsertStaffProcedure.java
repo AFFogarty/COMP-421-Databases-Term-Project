@@ -43,7 +43,7 @@ public class InsertStaffProcedure {
 
         // Build the staff query from all the values
         String insertStaffQuery = "INSERT INTO Staff VALUES ("+ staff_id + ", '" + dept_name + "', '" + wages + "', '" + salary + "', '" + shift_to + "', '" + shift_from + "', '" + over_time + "', '" + contract_from + "', '" + contract_until + "', '" + contact + "', '" + first_name + "', '" + last_name  +"');";
-        System.out.println(insertStaffQuery);
+
         // Execute the query
         db.executeInsertUpdateDestroy(insertStaffQuery);
 

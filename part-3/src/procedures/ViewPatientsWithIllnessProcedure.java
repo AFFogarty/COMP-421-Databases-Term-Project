@@ -47,7 +47,7 @@ public class ViewPatientsWithIllnessProcedure {
             return;
         }
 
-        System.out.println("\nPatients suffering from " + ill_name + ":\n");
+        System.out.println("\nPatients suffering from " + ill_name + ":");
 
         // Print the patient data
         do {

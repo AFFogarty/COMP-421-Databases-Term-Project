@@ -78,7 +78,7 @@ public class StockDoctorEquipmentProcedure {
                 updateQuery = "UPDATE DeptHasEqpt SET amount_needed=" + numberToBuy + ", current_stock="
                         + numberToBuy + " WHERE dept_name = '" + dept_name + "' AND eqpt_id = " + eqpt_id;
             }
-            System.out.println(updateQuery);
+
             db.executeInsertUpdateDestroy(updateQuery);
 
         } else {
@@ -86,7 +86,7 @@ public class StockDoctorEquipmentProcedure {
             System.out.println(dept_name + " does not have any " + eqpt_name + " so we will order " + numberToBuy + ".");
             String insertQuery = "INSERT INTO DeptHasEqpt VALUES ('" + dept_name + "', " + eqpt_id + ", "
                     + numberToBuy + ", " + numberToBuy + ")";
-            System.out.println(insertQuery);
+
             db.executeInsertUpdateDestroy(insertQuery);
         }
     }

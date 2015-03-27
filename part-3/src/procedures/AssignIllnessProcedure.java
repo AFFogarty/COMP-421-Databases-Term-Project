@@ -90,7 +90,6 @@ public class AssignIllnessProcedure {
         // Build the query
         String insertQuery = "INSERT INTO SufferingFrom VALUES (" + patient_id + ", '" + ill_id + "', '" + ill_since + "', "
                 + ill_until + ", '" + insurance_coverage + "', '" + treatment_cost + "', '" + urgency + "') ";
-        System.out.println(insertQuery);
         db.executeInsertUpdateDestroy(insertQuery);
 
         System.out.println("Record created that " + last_name + ", " + first_name + " suffers from " + ill_name + ".");

@@ -95,7 +95,7 @@ public class AssignSpecialistProcedure {
 
         // Build the query
         String treatsQuery = "INSERT INTO Treats VALUES (" + staff_id + ", " + patient_id + ", current_date, null)";
-        System.out.println(treatsQuery);
+
         // Run it
         db.executeInsertUpdateDestroy(treatsQuery);
 

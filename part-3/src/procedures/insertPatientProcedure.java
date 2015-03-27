@@ -41,7 +41,7 @@ public class InsertPatientProcedure {
                     + first_name + "', '" + last_name + "', '" + date_of_birth + "', '" + care_cost + "')";
             // Run the insert query
             db.executeInsertUpdateDestroy(insert_query);
-            System.out.println(insert_query);
+
             // It worked, so get the id number
             ResultSet successfulPatientSet = db.executeQuery("SELECT patient_id FROM Patient WHERE first_name='"
                     + first_name + "' AND last_name='" + last_name + "' AND date_of_birth='" + date_of_birth + "'");
