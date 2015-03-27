@@ -1,6 +1,5 @@
 package procedures;
 
-import helpers.QueryProcessing;
 import util.CommandPrompt;
 import util.Database;
 import helpers.RegEx;

@@ -62,11 +62,11 @@ public class AssignIllnessProcedure {
             illnessAvgCosts.add(illnesses.getString("average_treatment_cost"));
         }
         // Get the array index of the desired equipment
-        int equipmentIndex = CommandPrompt.getMenuSelection(illnessNames.toArray(new String[illnessNames.size()])) - 1;
+        int illnessIndex = CommandPrompt.getMenuSelection(illnessNames.toArray(new String[illnessNames.size()])) - 1;
         // Get the desired eqpt_id
-        String ill_id = illnessIds.get(equipmentIndex);
-        String ill_name = illnessNames.get(equipmentIndex);
-        String average_treatment_cost = illnessAvgCosts.get(equipmentIndex);
+        String ill_id = illnessIds.get(illnessIndex);
+        String ill_name = illnessNames.get(illnessIndex);
+        String average_treatment_cost = illnessAvgCosts.get(illnessIndex);
         illnesses.close();
 
         // See if record already exists

@@ -22,6 +22,7 @@ public class Main {
                 "Register or update patient",
                 "Assign illness to patient",
                 "Assign specialist to treat patient",
+                "View patients with illnesses",
                 "Quit"
         };
         boolean running = true;
@@ -99,6 +100,17 @@ public class Main {
                         e.printStackTrace();
                     }
                     System.out.println("\nAssign specialist procedure complete.  Returning to main menu...");
+                    System.out.println(Ascii.singleSeparator);
+                    break;
+                case 7:
+                    try {
+                        ViewPatientsWithIllnessProcedure.execute(db);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("\nView patient procedure complete.  Returning to main menu...");
                     System.out.println(Ascii.singleSeparator);
                     break;
                 default:
