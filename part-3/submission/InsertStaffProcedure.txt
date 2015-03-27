@@ -42,8 +42,8 @@ Please enter number between 1 and 8:
 1
 Option 1, Add staff to database, selected.
 Creating Staff record...
-Please enter first name: George
-Please enter last name: Washington
+Please enter first name: John
+Please enter last name: Adams
 Selecting department...
 
 
@@ -58,34 +58,36 @@ Please select one of the following:
 8. Cardiology
 9. Infectious Diseases
 Please enter number between 1 and 9:
-9
-Option 9, Infectious Diseases, selected.
+2
+Option 2, Psychiatry, selected.
 Please enter wages:
 Please enter a currency value in form '00.00' with no dollar sign.
-50.00
+75.00
 Please enter salary:
 Please enter a currency value in form '00.00' with no dollar sign.
-200000.00
+400000.00
 Please enter shift to time:
 Please enter a time in form '23:59:59'.
-03:45:00
+06:45:13
 Please enter shift from time:
 Please enter a time in form '23:59:59'.
-19:00:30
+19:00:00
 Please enter number of overtime hours:
 Please enter a number.
-6.79
+5.5
 Please enter contract from:
 Please enter a date in the form 'YYYY-MM-DD'.
-2003-01-30
+1998-07-19
 Please enter contract until:
 Please enter a date in the form 'YYYY-MM-DD'.
-2020-07-19
-Please enter contact information: george@usa.gov
-SUCCESS: Staff Washington, George created with id: 34116 created.
+2020-10-1
+Please enter a date in the form 'YYYY-MM-DD'.
+2020-10-01
+Please enter contact information: johnadams@usa.gov
+SUCCESS: Staff Adams, John created with id: 34117 created.
 
 
-Does George Washington have a special job?
+Does John Adams have a special job?
 
 
 
@@ -98,9 +100,9 @@ Please enter number between 1 and 4:
 1
 Option 1, Doctor, selected.
 Doctor selected.
-Please enter rank: Surgeon
-Please enter board certification: Fully qualified
-George Washington is now a doctor.
+Please enter rank: Director of Psychology
+Please enter board certification: PhD
+John Adams is now a doctor.
 
 Staff insertion procedure complete.  Returning to main menu...
 --------------------------------------------------------------------------------------------------
